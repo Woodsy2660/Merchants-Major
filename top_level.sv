@@ -32,7 +32,7 @@ module top_level (
     state_type next_state;
 
     // Which command to send
-    typedef enum logic [1:0] {
+      typedef enum logic [2:0] {
         CMD_NONE,
         CMD_FORWARD,
         CMD_BACKWARD,
