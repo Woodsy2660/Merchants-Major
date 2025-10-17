@@ -10,6 +10,7 @@ module top_level (
     // ---------------------------
     logic tx_valid = 1'b0;
     logic tx_ready;
+    logic tx_ready_prev = 1'b0;
     logic [7:0] byte_to_send = 0;
     integer char_index = 0;
     integer json_len = 0;
@@ -24,14 +25,22 @@ module top_level (
     // ---------------------------
     typedef enum logic [2:0] {
         Idle,
-        Forward,
-        Backward,
-        Left,
-        Right
+        Sending
     } state_type;
 
     state_type current_state = Idle;
     state_type next_state;
+
+    // Which command to send
+    typedef enum logic [1:0] {
+        CMD_NONE,
+        CMD_FORWARD,
+        CMD_BACKWARD,
+        CMD_LEFT,
+        CMD_RIGHT
+    } command_type;
+    
+    command_type current_cmd = CMD_NONE;
 
     // ---------------------------
     // JSON strings for each command
@@ -59,82 +68,77 @@ module top_level (
     );
 
     // ---------------------------
-    // FSM next state logic with edge detection
+    // Detect rising edge of tx_ready
     // ---------------------------
-    always_comb begin
-        next_state = current_state;
-        case (current_state)
-            Idle: begin
-                // Detect rising edge of switches
-                if (!SW_prev[0] && SW[0]) next_state = Forward;
-                else if (!SW_prev[1] && SW[1]) next_state = Backward;
-                else if (!SW_prev[2] && SW[2]) next_state = Left;
-                else if (!SW_prev[3] && SW[3]) next_state = Right;
-                else next_state = Idle;
-            end
-            Forward, Backward, Left, Right: begin
-                // Stay in state until transmission is complete
-                if (!tx_valid) next_state = Idle;
-                else next_state = current_state;
-            end
-            default: next_state = Idle;
-        endcase
-    end
+    wire tx_ready_edge = tx_ready && !tx_ready_prev;
 
     // ---------------------------
-    // FSM state register and edge detection
+    // Main transmission logic
     // ---------------------------
     always_ff @(posedge CLOCK_50) begin
         SW_prev <= SW;
-        current_state <= next_state;
-    end
-
-    // ---------------------------
-    // Send JSON based on FSM
-    // ---------------------------
-    always_ff @(posedge CLOCK_50) begin
-        if (!tx_valid) begin
-            case (current_state)
-                Forward: begin
+        tx_ready_prev <= tx_ready;
+        
+        case (current_state)
+            Idle: begin
+                // Detect switch press and start transmission
+                if (!SW_prev[0] && SW[0]) begin
+                    current_state <= Sending;
+                    current_cmd <= CMD_FORWARD;
+                    char_index <= 0;
+                    json_len <= FWD_LEN;
                     tx_valid <= 1'b1;
                     byte_to_send <= json_forward[0];
-                    char_index <= 1;
-                    json_len <= FWD_LEN;
                 end
-                Backward: begin
+                else if (!SW_prev[1] && SW[1]) begin
+                    current_state <= Sending;
+                    current_cmd <= CMD_BACKWARD;
+                    char_index <= 0;
+                    json_len <= BWD_LEN;
                     tx_valid <= 1'b1;
                     byte_to_send <= json_backward[0];
-                    char_index <= 1;
-                    json_len <= BWD_LEN;
                 end
-                Left: begin
+                else if (!SW_prev[2] && SW[2]) begin
+                    current_state <= Sending;
+                    current_cmd <= CMD_LEFT;
+                    char_index <= 0;
+                    json_len <= LEFT_LEN;
                     tx_valid <= 1'b1;
                     byte_to_send <= json_left[0];
-                    char_index <= 1;
-                    json_len <= LEFT_LEN;
                 end
-                Right: begin
+                else if (!SW_prev[3] && SW[3]) begin
+                    current_state <= Sending;
+                    current_cmd <= CMD_RIGHT;
+                    char_index <= 0;
+                    json_len <= RIGHT_LEN;
                     tx_valid <= 1'b1;
                     byte_to_send <= json_right[0];
-                    char_index <= 1;
-                    json_len <= RIGHT_LEN;
                 end
-            endcase
-        end
-        else if (tx_valid && tx_ready) begin
-            if (char_index >= json_len) begin
-                tx_valid <= 1'b0;
             end
-            else begin
-                case (current_state)
-                    Forward:  byte_to_send <= json_forward[char_index];
-                    Backward: byte_to_send <= json_backward[char_index];
-                    Left:     byte_to_send <= json_left[char_index];
-                    Right:    byte_to_send <= json_right[char_index];
-                endcase
-                char_index <= char_index + 1;
+            
+            Sending: begin
+                // Wait for UART to become ready (finish transmitting previous byte)
+                if (tx_ready_edge) begin
+                    char_index <= char_index + 1;
+                    
+                    if (char_index + 1 >= json_len) begin
+                        // Done sending all bytes
+                        tx_valid <= 1'b0;
+                        current_state <= Idle;
+                        current_cmd <= CMD_NONE;
+                    end
+                    else begin
+                        // Send next byte
+                        case (current_cmd)
+                            CMD_FORWARD:  byte_to_send <= json_forward[char_index + 1];
+                            CMD_BACKWARD: byte_to_send <= json_backward[char_index + 1];
+                            CMD_LEFT:     byte_to_send <= json_left[char_index + 1];
+                            CMD_RIGHT:    byte_to_send <= json_right[char_index + 1];
+                        endcase
+                    end
+                end
             end
-        end
+        endcase
     end
 
 endmodule
