@@ -12,6 +12,12 @@ module top_level (
     logic tx_ready;
     logic [7:0] byte_to_send = 0;
     integer char_index = 0;
+    integer json_len = 0;
+
+    // ---------------------------
+    // Switch edge detection
+    // ---------------------------
+    logic [17:0] SW_prev = '0;
 
     // ---------------------------
     // FSM state type
@@ -24,7 +30,8 @@ module top_level (
         Right
     } state_type;
 
-    state_type current_state, next_state;
+    state_type current_state = Idle;
+    state_type next_state;
 
     // ---------------------------
     // JSON strings for each command
@@ -39,8 +46,6 @@ module top_level (
     logic [7:0] json_left [LEFT_LEN] = '{8'h7B,8'h22,8'h54,8'h22,8'h3A,8'h31,8'h2C,8'h22,8'h4C,8'h22,8'h3A,8'h2D,8'h30,8'h2E,8'h32,8'h35,8'h2C,8'h22,8'h52,8'h22,8'h3A,8'h30,8'h2E,8'h32,8'h35,8'h7D,8'h0A};
     logic [7:0] json_right [RIGHT_LEN] = '{8'h7B,8'h22,8'h54,8'h22,8'h3A,8'h31,8'h2C,8'h22,8'h4C,8'h22,8'h3A,8'h30,8'h2E,8'h32,8'h35,8'h2C,8'h22,8'h52,8'h22,8'h3A,8'h2D,8'h30,8'h2E,8'h32,8'h35,8'h7D,8'h0A};
 
-    integer json_len;
-
     // ---------------------------
     // UART TX module
     // ---------------------------
@@ -54,31 +59,33 @@ module top_level (
     );
 
     // ---------------------------
-    // FSM next state logic
-    // Example: SW[0-3] trigger different directions
+    // FSM next state logic with edge detection
     // ---------------------------
     always_comb begin
         next_state = current_state;
         case (current_state)
             Idle: begin
-                if (SW[0]) next_state = Forward;
-                else if (SW[1]) next_state = Backward;
-                else if (SW[2]) next_state = Left;
-                else if (SW[3]) next_state = Right;
+                // Detect rising edge of switches
+                if (!SW_prev[0] && SW[0]) next_state = Forward;
+                else if (!SW_prev[1] && SW[1]) next_state = Backward;
+                else if (!SW_prev[2] && SW[2]) next_state = Left;
+                else if (!SW_prev[3] && SW[3]) next_state = Right;
                 else next_state = Idle;
             end
-            Forward:  next_state = Idle;
-            Backward: next_state = Idle;
-            Left:     next_state = Idle;
-            Right:    next_state = Idle;
-            default:  next_state = Idle;
+            Forward, Backward, Left, Right: begin
+                // Stay in state until transmission is complete
+                if (!tx_valid) next_state = Idle;
+                else next_state = current_state;
+            end
+            default: next_state = Idle;
         endcase
     end
 
     // ---------------------------
-    // FSM state register
+    // FSM state register and edge detection
     // ---------------------------
     always_ff @(posedge CLOCK_50) begin
+        SW_prev <= SW;
         current_state <= next_state;
     end
 
@@ -92,25 +99,25 @@ module top_level (
                     tx_valid <= 1'b1;
                     byte_to_send <= json_forward[0];
                     char_index <= 1;
-                    json_len = FWD_LEN;
+                    json_len <= FWD_LEN;
                 end
                 Backward: begin
                     tx_valid <= 1'b1;
                     byte_to_send <= json_backward[0];
                     char_index <= 1;
-                    json_len = BWD_LEN;
+                    json_len <= BWD_LEN;
                 end
                 Left: begin
                     tx_valid <= 1'b1;
                     byte_to_send <= json_left[0];
                     char_index <= 1;
-                    json_len = LEFT_LEN;
+                    json_len <= LEFT_LEN;
                 end
                 Right: begin
                     tx_valid <= 1'b1;
                     byte_to_send <= json_right[0];
                     char_index <= 1;
-                    json_len = RIGHT_LEN;
+                    json_len <= RIGHT_LEN;
                 end
             endcase
         end
