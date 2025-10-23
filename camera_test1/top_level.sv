@@ -1,6 +1,6 @@
 module top_level(
 	input 	logic 		 CLOCK_50,
-	input  	logic        OV7670_PCLK,
+	input  	logic        OV7670_PCLK, 
 	output 	logic        OV7670_XCLK,
 	input 	logic        OV7670_VSYNC,
 	input  	logic        OV7670_HREF,
@@ -9,7 +9,7 @@ module top_level(
 	inout  	wire         OV7670_SIOD,
 	output 	logic        OV7670_PWON,
 	output 	logic        OV7670_RESET,
-	input logic		[3:0] 	KEY,
+	input 	logic [3:0]  KEY,
 	
 	output logic        VGA_HS,
 	output logic        VGA_VS,
@@ -18,7 +18,12 @@ module top_level(
 	output logic [7:0]  VGA_B,
 	output logic        VGA_BLANK_N,
 	output logic        VGA_SYNC_N,
-	output logic        VGA_CLK
+	output logic        VGA_CLK,
+	
+	output [6:0] HEX0,
+	output [6:0] HEX1,
+	output [6:0] HEX2,
+	output [6:0] HEX3
 
 );
 	logic sys_reset = 1'b0;
@@ -26,15 +31,12 @@ module top_level(
 	//Camera and VGA PLL
 	logic       clk_25_vga;
 	logic       clk_12_camera; 
-	assign 		resend_camera_config	 = ~KEY[0];
-	
-	
+	logic 		resend_camera_config;
 	logic			video_pll_locked;
-	
 	logic 		config_finished;
-	
-	
 	assign OV7670_XCLK = clk_25_vga;
+	assign resent_camera_config = ~KEY[0];
+	
 	video_PLL U0(
 		.refclk(CLOCK_50),  
 		.rst(sys_reset),      
@@ -106,6 +108,44 @@ module top_level(
 	    .VGA_SYNC_N(VGA_SYNC_N),
 		 .ready(vga_ready)
 	);
-		
 	
+	// ========== Color Debug ==========
+    
+    logic [9:0]  debug_x_count;
+    logic [8:0]  debug_y_count;
+    logic [11:0] debug_center_pixel;
+    logic [3:0]  debug_red, debug_green, debug_blue;
+    logic [10:0] debug_red_dec;
+    logic        debug_red_det, debug_green_det, debug_blue_det;
+    
+    // Color debug module
+    color_debug U5 (
+        .clk(clk_25_vga),
+        .video_data(video_data),
+        .vga_ready(vga_ready),
+        .x_count(debug_x_count),
+        .y_count(debug_y_count),
+        .center_pixel(debug_center_pixel),
+        .center_red(debug_red),
+        .center_green(debug_green),
+        .center_blue(debug_blue),
+        .red_decimal(debug_red_dec),
+        .green_decimal(), 
+        .blue_decimal(),  
+        .red_detected(debug_red_det),
+        .green_detected(debug_green_det),
+        .blue_detected(debug_blue_det)
+    );
+    
+    // Display RED value on all 4 digits (only HEX1-0 will show 00-15)
+    display u_display (
+        .clk(clk_25_vga),
+        .value(debug_red_dec),
+        .display0(HEX0),  // Red units
+        .display1(HEX1),  // Red tens  
+        .display2(HEX2),  // Will be 0
+        .display3(HEX3)   // Will be 0
+    );
+    
+
 endmodule
