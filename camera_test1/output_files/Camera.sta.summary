@@ -1,0 +1,101 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1100mV 85C Model Setup 'PCLK'
+Slack : -4.535
+TNS   : -16.883
+
+Type  : Slow 1100mV 85C Model Setup 'clk'
+Slack : 10.190
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Hold 'PCLK'
+Slack : -3.494
+TNS   : -27.702
+
+Type  : Slow 1100mV 85C Model Hold 'clk'
+Slack : 0.373
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'PCLK'
+Slack : 3.983
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'clk'
+Slack : 8.895
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Setup 'PCLK'
+Slack : -4.227
+TNS   : -15.589
+
+Type  : Slow 1100mV 0C Model Setup 'clk'
+Slack : 10.631
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Hold 'PCLK'
+Slack : -3.616
+TNS   : -28.705
+
+Type  : Slow 1100mV 0C Model Hold 'clk'
+Slack : 0.355
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'PCLK'
+Slack : 3.993
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'clk'
+Slack : 8.919
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Setup 'PCLK'
+Slack : -3.268
+TNS   : -12.556
+
+Type  : Fast 1100mV 85C Model Setup 'clk'
+Slack : 12.997
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Hold 'PCLK'
+Slack : -0.309
+TNS   : -2.277
+
+Type  : Fast 1100mV 85C Model Hold 'clk'
+Slack : 0.182
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'PCLK'
+Slack : 3.596
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'clk'
+Slack : 8.503
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Setup 'PCLK'
+Slack : -2.593
+TNS   : -10.097
+
+Type  : Fast 1100mV 0C Model Setup 'clk'
+Slack : 13.896
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Hold 'PCLK'
+Slack : -0.715
+TNS   : -5.536
+
+Type  : Fast 1100mV 0C Model Hold 'clk'
+Slack : 0.171
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'PCLK'
+Slack : 3.599
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'clk'
+Slack : 8.458
+TNS   : 0.000
+
+------------------------------------------------------------
