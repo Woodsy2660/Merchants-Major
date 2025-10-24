@@ -102,7 +102,7 @@ reg [7:0] address = 1'b0;
       // COM1   no CCIR601
     end
     8'h08 : begin
-      sreg <= 16'h4010;
+      sreg <= 16'h40D0;
 		//sreg <= 16'h40D0;
       // COM15  Full 0-255 output, RGB 565
     end
@@ -111,7 +111,7 @@ reg [7:0] address = 1'b0;
       // TSLB   Set UV ordering,  do not auto-reset window
     end
     8'h0A : begin
-      sreg <= 16'h1448;
+      sreg <= 16'h1400;
 		//sreg <= 16'h1400;
       // COM9  - AGC Celling
     end
@@ -148,7 +148,7 @@ reg [7:0] address = 1'b0;
       // COM13 - Turn on GAMMA and UV Auto adjust
     end
     8'h13 : begin
-      sreg <= 16'h1100;
+      sreg <= 16'h13E7;
       // CLKRC  Prescaler - Fin/(1+1)
     end
     8'h14 : begin
@@ -276,6 +276,15 @@ reg [7:0] address = 1'b0;
       //sreg <= 16'h71b5; //Color bar test
 		sreg <= 16'h7100;
     end
+	 
+	 // Additional registers for better color detection
+    8'h39 : begin
+      sreg <= 16'hC960;  // Saturation control - increase for vivid colors
+    end
+    8'h3A : begin
+      sreg <= 16'h5640;  // Contrast control
+    end
+	 
     default : begin
       sreg <= 16'hffff;
     end
