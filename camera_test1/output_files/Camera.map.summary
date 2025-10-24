@@ -1,11 +1,11 @@
-Analysis & Synthesis Status : Successful - Thu Oct 23 17:01:49 2025
+Analysis & Synthesis Status : Successful - Fri Oct 24 16:42:26 2025
 Quartus Prime Version : 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 Revision Name : Camera
 Top-level Entity Name : top_level
 Family : Cyclone V
 Logic utilization (in ALMs) : N/A
-Total registers : 249
-Total pins : 50
+Total registers : 302
+Total pins : 78
 Total virtual pins : 0
 Total block memory bits : 1,572,864
 Total DSP Blocks : 0

@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Camera
-Thu Oct 23 17:01:50 2025
+Fri Oct 24 16:42:26 2025
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -28,14 +28,15 @@ Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
  20. Parameter Settings for User Entity Instance: image_buffer:U3|image_RAM:Inst_buffer_top|altsyncram:altsyncram_component
  21. Parameter Settings for User Entity Instance: image_buffer:U3|image_RAM:Inst_buffer_bottom|altsyncram:altsyncram_component
  22. altsyncram Parameter Settings by Entity Instance
- 23. Port Connectivity Checks: "image_buffer:U3"
- 24. Port Connectivity Checks: "ov7670_controller:U1|i2c_sender:Inst_i2c_sender"
- 25. Port Connectivity Checks: "ov7670_controller:U1"
- 26. Port Connectivity Checks: "video_PLL:U0"
- 27. Post-Synthesis Netlist Statistics for Top Partition
- 28. Elapsed Time Per Partition
- 29. Analysis & Synthesis Messages
- 30. Analysis & Synthesis Suppressed Messages
+ 23. Port Connectivity Checks: "color_debug:U5"
+ 24. Port Connectivity Checks: "image_buffer:U3"
+ 25. Port Connectivity Checks: "ov7670_controller:U1|i2c_sender:Inst_i2c_sender"
+ 26. Port Connectivity Checks: "ov7670_controller:U1"
+ 27. Port Connectivity Checks: "video_PLL:U0"
+ 28. Post-Synthesis Netlist Statistics for Top Partition
+ 29. Elapsed Time Per Partition
+ 30. Analysis & Synthesis Messages
+ 31. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -62,14 +63,14 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Thu Oct 23 17:01:49 2025       ;
+; Analysis & Synthesis Status     ; Successful - Fri Oct 24 16:42:26 2025       ;
 ; Quartus Prime Version           ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                   ; Camera                                      ;
 ; Top-level Entity Name           ; top_level                                   ;
 ; Family                          ; Cyclone V                                   ;
 ; Logic utilization (in ALMs)     ; N/A                                         ;
-; Total registers                 ; 249                                         ;
-; Total pins                      ; 50                                          ;
+; Total registers                 ; 302                                         ;
+; Total pins                      ; 78                                          ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 1,572,864                                   ;
 ; Total DSP Blocks                ; 0                                           ;
@@ -183,40 +184,45 @@ https://fpgasoftware.intel.com/eula.
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
 ;     Processor 2            ;   0.0%      ;
-;     Processors 3-16        ;   0.0%      ;
+;     Processor 3            ;   0.0%      ;
+;     Processors 4-16        ;   0.0%      ;
 +----------------------------+-------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                                                            ;
-+----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------------------------------------------+-----------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                                                      ; Library   ;
-+----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------------------------------------------+-----------+
-; ov7670_pixel_capture.sv          ; yes             ; User SystemVerilog HDL File  ; C:/Users/jiaho/Documents/USYD4thYear2025/MTRX3700/MajorAssignmentProgress/camera_test1/ov7670_pixel_capture.sv    ;           ;
-; image_buffer.sv                  ; yes             ; User SystemVerilog HDL File  ; C:/Users/jiaho/Documents/USYD4thYear2025/MTRX3700/MajorAssignmentProgress/camera_test1/image_buffer.sv            ;           ;
-; ov7670_registers.v               ; yes             ; User Verilog HDL File        ; C:/Users/jiaho/Documents/USYD4thYear2025/MTRX3700/MajorAssignmentProgress/camera_test1/ov7670_registers.v         ;           ;
-; i2c_sender.v                     ; yes             ; User Verilog HDL File        ; C:/Users/jiaho/Documents/USYD4thYear2025/MTRX3700/MajorAssignmentProgress/camera_test1/i2c_sender.v               ;           ;
-; ov7670_controller.v              ; yes             ; User Verilog HDL File        ; C:/Users/jiaho/Documents/USYD4thYear2025/MTRX3700/MajorAssignmentProgress/camera_test1/ov7670_controller.v        ;           ;
-; top_level.sv                     ; yes             ; User SystemVerilog HDL File  ; C:/Users/jiaho/Documents/USYD4thYear2025/MTRX3700/MajorAssignmentProgress/camera_test1/top_level.sv               ;           ;
-; video_PLL.v                      ; yes             ; User Wizard-Generated File   ; C:/Users/jiaho/Documents/USYD4thYear2025/MTRX3700/MajorAssignmentProgress/camera_test1/video_PLL.v                ; video_PLL ;
-; video_PLL/video_PLL_0002.v       ; yes             ; User Verilog HDL File        ; C:/Users/jiaho/Documents/USYD4thYear2025/MTRX3700/MajorAssignmentProgress/camera_test1/video_PLL/video_PLL_0002.v ; video_PLL ;
-; image_RAM.v                      ; yes             ; User Wizard-Generated File   ; C:/Users/jiaho/Documents/USYD4thYear2025/MTRX3700/MajorAssignmentProgress/camera_test1/image_RAM.v                ;           ;
-; vga_driver.sv                    ; yes             ; User SystemVerilog HDL File  ; C:/Users/jiaho/Documents/USYD4thYear2025/MTRX3700/MajorAssignmentProgress/camera_test1/vga_driver.sv              ;           ;
-; altera_pll.v                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altera_pll.v                                               ;           ;
-; altsyncram.tdf                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altsyncram.tdf                                             ;           ;
-; stratix_ram_block.inc            ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/stratix_ram_block.inc                                      ;           ;
-; lpm_mux.inc                      ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/lpm_mux.inc                                                ;           ;
-; lpm_decode.inc                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/lpm_decode.inc                                             ;           ;
-; aglobal201.inc                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/aglobal201.inc                                             ;           ;
-; a_rdenreg.inc                    ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/a_rdenreg.inc                                              ;           ;
-; altrom.inc                       ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altrom.inc                                                 ;           ;
-; altram.inc                       ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altram.inc                                                 ;           ;
-; altdpram.inc                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altdpram.inc                                               ;           ;
-; db/altsyncram_a2q1.tdf           ; yes             ; Auto-Generated Megafunction  ; C:/Users/jiaho/Documents/USYD4thYear2025/MTRX3700/MajorAssignmentProgress/camera_test1/db/altsyncram_a2q1.tdf     ;           ;
-; db/decode_dla.tdf                ; yes             ; Auto-Generated Megafunction  ; C:/Users/jiaho/Documents/USYD4thYear2025/MTRX3700/MajorAssignmentProgress/camera_test1/db/decode_dla.tdf          ;           ;
-; db/decode_61a.tdf                ; yes             ; Auto-Generated Megafunction  ; C:/Users/jiaho/Documents/USYD4thYear2025/MTRX3700/MajorAssignmentProgress/camera_test1/db/decode_61a.tdf          ;           ;
-; db/mux_8hb.tdf                   ; yes             ; Auto-Generated Megafunction  ; C:/Users/jiaho/Documents/USYD4thYear2025/MTRX3700/MajorAssignmentProgress/camera_test1/db/mux_8hb.tdf             ;           ;
-+----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------------------------------------------+-----------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                  ;
++----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------------------------+-----------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                            ; Library   ;
++----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------------------------+-----------+
+; seven_seg.sv                     ; yes             ; User SystemVerilog HDL File  ; C:/Users/jiaho/Documents/Github/Merchants-Major/camera_test1/seven_seg.sv               ;           ;
+; display.sv                       ; yes             ; User SystemVerilog HDL File  ; C:/Users/jiaho/Documents/Github/Merchants-Major/camera_test1/display.sv                 ;           ;
+; colour_debug.sv                  ; yes             ; User SystemVerilog HDL File  ; C:/Users/jiaho/Documents/Github/Merchants-Major/camera_test1/colour_debug.sv            ;           ;
+; ov7670_pixel_capture.sv          ; yes             ; User SystemVerilog HDL File  ; C:/Users/jiaho/Documents/Github/Merchants-Major/camera_test1/ov7670_pixel_capture.sv    ;           ;
+; image_buffer.sv                  ; yes             ; User SystemVerilog HDL File  ; C:/Users/jiaho/Documents/Github/Merchants-Major/camera_test1/image_buffer.sv            ;           ;
+; ov7670_registers.v               ; yes             ; User Verilog HDL File        ; C:/Users/jiaho/Documents/Github/Merchants-Major/camera_test1/ov7670_registers.v         ;           ;
+; i2c_sender.v                     ; yes             ; User Verilog HDL File        ; C:/Users/jiaho/Documents/Github/Merchants-Major/camera_test1/i2c_sender.v               ;           ;
+; ov7670_controller.v              ; yes             ; User Verilog HDL File        ; C:/Users/jiaho/Documents/Github/Merchants-Major/camera_test1/ov7670_controller.v        ;           ;
+; top_level.sv                     ; yes             ; User SystemVerilog HDL File  ; C:/Users/jiaho/Documents/Github/Merchants-Major/camera_test1/top_level.sv               ;           ;
+; video_PLL.v                      ; yes             ; User Wizard-Generated File   ; C:/Users/jiaho/Documents/Github/Merchants-Major/camera_test1/video_PLL.v                ; video_PLL ;
+; video_PLL/video_PLL_0002.v       ; yes             ; User Verilog HDL File        ; C:/Users/jiaho/Documents/Github/Merchants-Major/camera_test1/video_PLL/video_PLL_0002.v ; video_PLL ;
+; image_RAM.v                      ; yes             ; User Wizard-Generated File   ; C:/Users/jiaho/Documents/Github/Merchants-Major/camera_test1/image_RAM.v                ;           ;
+; vga_driver.sv                    ; yes             ; User SystemVerilog HDL File  ; C:/Users/jiaho/Documents/Github/Merchants-Major/camera_test1/vga_driver.sv              ;           ;
+; roi_overlay.sv                   ; yes             ; User SystemVerilog HDL File  ; C:/Users/jiaho/Documents/Github/Merchants-Major/camera_test1/roi_overlay.sv             ;           ;
+; altera_pll.v                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altera_pll.v                     ;           ;
+; altsyncram.tdf                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altsyncram.tdf                   ;           ;
+; stratix_ram_block.inc            ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/stratix_ram_block.inc            ;           ;
+; lpm_mux.inc                      ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/lpm_mux.inc                      ;           ;
+; lpm_decode.inc                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/lpm_decode.inc                   ;           ;
+; aglobal201.inc                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/aglobal201.inc                   ;           ;
+; a_rdenreg.inc                    ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/a_rdenreg.inc                    ;           ;
+; altrom.inc                       ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altrom.inc                       ;           ;
+; altram.inc                       ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altram.inc                       ;           ;
+; altdpram.inc                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altdpram.inc                     ;           ;
+; db/altsyncram_a2q1.tdf           ; yes             ; Auto-Generated Megafunction  ; C:/Users/jiaho/Documents/Github/Merchants-Major/camera_test1/db/altsyncram_a2q1.tdf     ;           ;
+; db/decode_dla.tdf                ; yes             ; Auto-Generated Megafunction  ; C:/Users/jiaho/Documents/Github/Merchants-Major/camera_test1/db/decode_dla.tdf          ;           ;
+; db/decode_61a.tdf                ; yes             ; Auto-Generated Megafunction  ; C:/Users/jiaho/Documents/Github/Merchants-Major/camera_test1/db/decode_61a.tdf          ;           ;
+; db/mux_8hb.tdf                   ; yes             ; Auto-Generated Megafunction  ; C:/Users/jiaho/Documents/Github/Merchants-Major/camera_test1/db/mux_8hb.tdf             ;           ;
++----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------------------------+-----------+
 
 
 +---------------------------------------------------------------------------------------------------------------------------------+
@@ -224,18 +230,18 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+-----------------------------------------------------------------------------------+
 ; Resource                                    ; Usage                                                                             ;
 +---------------------------------------------+-----------------------------------------------------------------------------------+
-; Estimate of Logic utilization (ALMs needed) ; 255                                                                               ;
+; Estimate of Logic utilization (ALMs needed) ; 314                                                                               ;
 ;                                             ;                                                                                   ;
-; Combinational ALUT usage for logic          ; 417                                                                               ;
-;     -- 7 input functions                    ; 1                                                                                 ;
-;     -- 6 input functions                    ; 89                                                                                ;
-;     -- 5 input functions                    ; 70                                                                                ;
-;     -- 4 input functions                    ; 73                                                                                ;
-;     -- <=3 input functions                  ; 184                                                                               ;
+; Combinational ALUT usage for logic          ; 495                                                                               ;
+;     -- 7 input functions                    ; 5                                                                                 ;
+;     -- 6 input functions                    ; 122                                                                               ;
+;     -- 5 input functions                    ; 68                                                                                ;
+;     -- 4 input functions                    ; 113                                                                               ;
+;     -- <=3 input functions                  ; 187                                                                               ;
 ;                                             ;                                                                                   ;
-; Dedicated logic registers                   ; 249                                                                               ;
+; Dedicated logic registers                   ; 302                                                                               ;
 ;                                             ;                                                                                   ;
-; I/O pins                                    ; 50                                                                                ;
+; I/O pins                                    ; 78                                                                                ;
 ; Total MLAB memory bits                      ; 0                                                                                 ;
 ; Total block memory bits                     ; 1572864                                                                           ;
 ;                                             ;                                                                                   ;
@@ -245,9 +251,9 @@ https://fpgasoftware.intel.com/eula.
 ;     -- PLLs                                 ; 2                                                                                 ;
 ;                                             ;                                                                                   ;
 ; Maximum fan-out node                        ; video_PLL:U0|video_PLL_0002:video_pll_inst|altera_pll:altera_pll_i|outclk_wire[1] ;
-; Maximum fan-out                             ; 409                                                                               ;
-; Total fan-out                               ; 8377                                                                              ;
-; Average fan-out                             ; 8.72                                                                              ;
+; Maximum fan-out                             ; 462                                                                               ;
+; Total fan-out                               ; 8948                                                                              ;
+; Average fan-out                             ; 7.79                                                                              ;
 +---------------------------------------------+-----------------------------------------------------------------------------------+
 
 
@@ -256,8 +262,14 @@ https://fpgasoftware.intel.com/eula.
 +------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------------------------------------------------------------------------------------------------------+----------------------+--------------+
 ; Compilation Hierarchy Node                     ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                          ; Entity Name          ; Library Name ;
 +------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------------------------------------------------------------------------------------------------------+----------------------+--------------+
-; |top_level                                     ; 417 (12)            ; 249 (0)                   ; 1572864           ; 0          ; 50   ; 0            ; |top_level                                                                                                                                   ; top_level            ; work         ;
-;    |image_buffer:U3|                           ; 107 (83)            ; 42 (36)                   ; 1572864           ; 0          ; 0    ; 0            ; |top_level|image_buffer:U3                                                                                                                   ; image_buffer         ; work         ;
+; |top_level                                     ; 495 (12)            ; 302 (0)                   ; 1572864           ; 0          ; 78   ; 0            ; |top_level                                                                                                                                   ; top_level            ; work         ;
+;    |color_debug:U5|                            ; 32 (32)             ; 23 (23)                   ; 0                 ; 0          ; 0    ; 0            ; |top_level|color_debug:U5                                                                                                                    ; color_debug          ; work         ;
+;    |display:u_display|                         ; 64 (36)             ; 49 (49)                   ; 0                 ; 0          ; 0    ; 0            ; |top_level|display:u_display                                                                                                                 ; display              ; work         ;
+;       |seven_seg:u_digit0|                     ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|display:u_display|seven_seg:u_digit0                                                                                              ; seven_seg            ; work         ;
+;       |seven_seg:u_digit1|                     ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|display:u_display|seven_seg:u_digit1                                                                                              ; seven_seg            ; work         ;
+;       |seven_seg:u_digit2|                     ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|display:u_display|seven_seg:u_digit2                                                                                              ; seven_seg            ; work         ;
+;       |seven_seg:u_digit3|                     ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|display:u_display|seven_seg:u_digit3                                                                                              ; seven_seg            ; work         ;
+;    |image_buffer:U3|                           ; 83 (59)             ; 23 (17)                   ; 1572864           ; 0          ; 0    ; 0            ; |top_level|image_buffer:U3                                                                                                                   ; image_buffer         ; work         ;
 ;       |image_RAM:Inst_buffer_bottom|           ; 8 (0)               ; 6 (0)                     ; 786432            ; 0          ; 0    ; 0            ; |top_level|image_buffer:U3|image_RAM:Inst_buffer_bottom                                                                                      ; image_RAM            ; work         ;
 ;          |altsyncram:altsyncram_component|     ; 8 (0)               ; 6 (0)                     ; 786432            ; 0          ; 0    ; 0            ; |top_level|image_buffer:U3|image_RAM:Inst_buffer_bottom|altsyncram:altsyncram_component                                                      ; altsyncram           ; work         ;
 ;             |altsyncram_a2q1:auto_generated|   ; 8 (0)               ; 6 (6)                     ; 786432            ; 0          ; 0    ; 0            ; |top_level|image_buffer:U3|image_RAM:Inst_buffer_bottom|altsyncram:altsyncram_component|altsyncram_a2q1:auto_generated                       ; altsyncram_a2q1      ; work         ;
@@ -267,11 +279,12 @@ https://fpgasoftware.intel.com/eula.
 ;             |altsyncram_a2q1:auto_generated|   ; 16 (0)              ; 0 (0)                     ; 786432            ; 0          ; 0    ; 0            ; |top_level|image_buffer:U3|image_RAM:Inst_buffer_top|altsyncram:altsyncram_component|altsyncram_a2q1:auto_generated                          ; altsyncram_a2q1      ; work         ;
 ;                |decode_61a:rden_decode_b|      ; 8 (8)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|image_buffer:U3|image_RAM:Inst_buffer_top|altsyncram:altsyncram_component|altsyncram_a2q1:auto_generated|decode_61a:rden_decode_b ; decode_61a           ; work         ;
 ;                |decode_dla:decode2|            ; 8 (8)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|image_buffer:U3|image_RAM:Inst_buffer_top|altsyncram:altsyncram_component|altsyncram_a2q1:auto_generated|decode_dla:decode2       ; decode_dla           ; work         ;
-;    |ov7670_controller:U1|                      ; 203 (0)             ; 138 (0)                   ; 0                 ; 0          ; 0    ; 0            ; |top_level|ov7670_controller:U1                                                                                                              ; ov7670_controller    ; work         ;
+;    |ov7670_controller:U1|                      ; 202 (0)             ; 138 (0)                   ; 0                 ; 0          ; 0    ; 0            ; |top_level|ov7670_controller:U1                                                                                                              ; ov7670_controller    ; work         ;
 ;       |i2c_sender:Inst_i2c_sender|             ; 73 (73)             ; 73 (73)                   ; 0                 ; 0          ; 0    ; 0            ; |top_level|ov7670_controller:U1|i2c_sender:Inst_i2c_sender                                                                                   ; i2c_sender           ; work         ;
-;       |ov7670_registers:Inst_ov7670_registers| ; 130 (130)           ; 65 (65)                   ; 0                 ; 0          ; 0    ; 0            ; |top_level|ov7670_controller:U1|ov7670_registers:Inst_ov7670_registers                                                                       ; ov7670_registers     ; work         ;
+;       |ov7670_registers:Inst_ov7670_registers| ; 129 (129)           ; 65 (65)                   ; 0                 ; 0          ; 0    ; 0            ; |top_level|ov7670_controller:U1|ov7670_registers:Inst_ov7670_registers                                                                       ; ov7670_registers     ; work         ;
 ;    |ov7670_pixel_capture:DUT1|                 ; 24 (24)             ; 34 (34)                   ; 0                 ; 0          ; 0    ; 0            ; |top_level|ov7670_pixel_capture:DUT1                                                                                                         ; ov7670_pixel_capture ; work         ;
-;    |vga_driver:U4|                             ; 71 (71)             ; 35 (35)                   ; 0                 ; 0          ; 0    ; 0            ; |top_level|vga_driver:U4                                                                                                                     ; vga_driver           ; work         ;
+;    |roi_overlay:overlay_inst|                  ; 5 (5)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|roi_overlay:overlay_inst                                                                                                          ; roi_overlay          ; work         ;
+;    |vga_driver:U4|                             ; 73 (73)             ; 35 (35)                   ; 0                 ; 0          ; 0    ; 0            ; |top_level|vga_driver:U4                                                                                                                     ; vga_driver           ; work         ;
 ;    |video_PLL:U0|                              ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|video_PLL:U0                                                                                                                      ; video_PLL            ; video_PLL    ;
 ;       |video_PLL_0002:video_pll_inst|          ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|video_PLL:U0|video_PLL_0002:video_pll_inst                                                                                        ; video_PLL_0002       ; video_PLL    ;
 ;          |altera_pll:altera_pll_i|             ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|video_PLL:U0|video_PLL_0002:video_pll_inst|altera_pll:altera_pll_i                                                                ; altera_pll           ; work         ;
@@ -371,6 +384,7 @@ Encoding Type:  One-Hot
 +-------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------+
 ; Register name                                                                                                                 ; Reason for Removal                                                                                                                           ;
 +-------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; display:u_display|current_state[2..31]                                                                                        ; Stuck at GND due to stuck port data_in                                                                                                       ;
 ; vga_driver:U4|state[2..31]                                                                                                    ; Stuck at GND due to stuck port data_in                                                                                                       ;
 ; image_buffer:U3|image_RAM:Inst_buffer_top|altsyncram:altsyncram_component|altsyncram_a2q1:auto_generated|address_reg_b[2]     ; Merged with image_buffer:U3|image_RAM:Inst_buffer_bottom|altsyncram:altsyncram_component|altsyncram_a2q1:auto_generated|address_reg_b[2]     ;
 ; image_buffer:U3|image_RAM:Inst_buffer_top|altsyncram:altsyncram_component|altsyncram_a2q1:auto_generated|address_reg_b[1]     ; Merged with image_buffer:U3|image_RAM:Inst_buffer_bottom|altsyncram:altsyncram_component|altsyncram_a2q1:auto_generated|address_reg_b[1]     ;
@@ -378,6 +392,25 @@ Encoding Type:  One-Hot
 ; image_buffer:U3|image_RAM:Inst_buffer_top|altsyncram:altsyncram_component|altsyncram_a2q1:auto_generated|out_address_reg_b[2] ; Merged with image_buffer:U3|image_RAM:Inst_buffer_bottom|altsyncram:altsyncram_component|altsyncram_a2q1:auto_generated|out_address_reg_b[2] ;
 ; image_buffer:U3|image_RAM:Inst_buffer_top|altsyncram:altsyncram_component|altsyncram_a2q1:auto_generated|out_address_reg_b[1] ; Merged with image_buffer:U3|image_RAM:Inst_buffer_bottom|altsyncram:altsyncram_component|altsyncram_a2q1:auto_generated|out_address_reg_b[1] ;
 ; image_buffer:U3|image_RAM:Inst_buffer_top|altsyncram:altsyncram_component|altsyncram_a2q1:auto_generated|out_address_reg_b[0] ; Merged with image_buffer:U3|image_RAM:Inst_buffer_bottom|altsyncram:altsyncram_component|altsyncram_a2q1:auto_generated|out_address_reg_b[0] ;
+; image_buffer:U3|x_vga[9]                                                                                                      ; Merged with color_debug:U5|x_count[9]                                                                                                        ;
+; image_buffer:U3|x_vga[8]                                                                                                      ; Merged with color_debug:U5|x_count[8]                                                                                                        ;
+; image_buffer:U3|x_vga[7]                                                                                                      ; Merged with color_debug:U5|x_count[7]                                                                                                        ;
+; image_buffer:U3|x_vga[6]                                                                                                      ; Merged with color_debug:U5|x_count[6]                                                                                                        ;
+; image_buffer:U3|x_vga[5]                                                                                                      ; Merged with color_debug:U5|x_count[5]                                                                                                        ;
+; image_buffer:U3|x_vga[4]                                                                                                      ; Merged with color_debug:U5|x_count[4]                                                                                                        ;
+; image_buffer:U3|x_vga[3]                                                                                                      ; Merged with color_debug:U5|x_count[3]                                                                                                        ;
+; image_buffer:U3|x_vga[2]                                                                                                      ; Merged with color_debug:U5|x_count[2]                                                                                                        ;
+; image_buffer:U3|x_vga[1]                                                                                                      ; Merged with color_debug:U5|x_count[1]                                                                                                        ;
+; image_buffer:U3|x_vga[0]                                                                                                      ; Merged with color_debug:U5|x_count[0]                                                                                                        ;
+; image_buffer:U3|y_vga[8]                                                                                                      ; Merged with color_debug:U5|y_count[8]                                                                                                        ;
+; image_buffer:U3|y_vga[7]                                                                                                      ; Merged with color_debug:U5|y_count[7]                                                                                                        ;
+; image_buffer:U3|y_vga[6]                                                                                                      ; Merged with color_debug:U5|y_count[6]                                                                                                        ;
+; image_buffer:U3|y_vga[5]                                                                                                      ; Merged with color_debug:U5|y_count[5]                                                                                                        ;
+; image_buffer:U3|y_vga[4]                                                                                                      ; Merged with color_debug:U5|y_count[4]                                                                                                        ;
+; image_buffer:U3|y_vga[3]                                                                                                      ; Merged with color_debug:U5|y_count[3]                                                                                                        ;
+; image_buffer:U3|y_vga[2]                                                                                                      ; Merged with color_debug:U5|y_count[2]                                                                                                        ;
+; image_buffer:U3|y_vga[1]                                                                                                      ; Merged with color_debug:U5|y_count[1]                                                                                                        ;
+; image_buffer:U3|y_vga[0]                                                                                                      ; Merged with color_debug:U5|y_count[0]                                                                                                        ;
 ; ov7670_controller:U1|i2c_sender:Inst_i2c_sender|data_sr[0]                                                                    ; Stuck at VCC due to stuck port data_in                                                                                                       ;
 ; ov7670_controller:U1|ov7670_registers:Inst_ov7670_registers|sreg~2                                                            ; Lost fanout                                                                                                                                  ;
 ; ov7670_controller:U1|ov7670_registers:Inst_ov7670_registers|sreg~3                                                            ; Lost fanout                                                                                                                                  ;
@@ -395,7 +428,7 @@ Encoding Type:  One-Hot
 ; ov7670_controller:U1|ov7670_registers:Inst_ov7670_registers|sreg~15                                                           ; Lost fanout                                                                                                                                  ;
 ; ov7670_controller:U1|ov7670_registers:Inst_ov7670_registers|sreg~16                                                           ; Lost fanout                                                                                                                                  ;
 ; ov7670_controller:U1|ov7670_registers:Inst_ov7670_registers|sreg~17                                                           ; Lost fanout                                                                                                                                  ;
-; Total Number of Removed Registers = 53                                                                                        ;                                                                                                                                              ;
+; Total Number of Removed Registers = 102                                                                                       ;                                                                                                                                              ;
 +-------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------+
 
 
@@ -404,12 +437,12 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 249   ;
-; Number of registers using Synchronous Clear  ; 78    ;
+; Total registers                              ; 302   ;
+; Number of registers using Synchronous Clear  ; 70    ;
 ; Number of registers using Synchronous Load   ; 17    ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 139   ;
+; Number of registers using Clock Enable       ; 180   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -429,11 +462,18 @@ Encoding Type:  One-Hot
 +--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                             ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------+
-; 3:1                ; 44 bits   ; 88 LEs        ; 44 LEs               ; 44 LEs                 ; Yes        ; |top_level|ov7670_controller:U1|i2c_sender:Inst_i2c_sender|busy_sr[11] ;
+; 3:1                ; 44 bits   ; 88 LEs        ; 44 LEs               ; 44 LEs                 ; Yes        ; |top_level|ov7670_controller:U1|i2c_sender:Inst_i2c_sender|busy_sr[1]  ;
 ; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |top_level|ov7670_controller:U1|i2c_sender:Inst_i2c_sender|data_sr[17] ;
-; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |top_level|ov7670_controller:U1|i2c_sender:Inst_i2c_sender|divider[4]  ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |top_level|ov7670_controller:U1|i2c_sender:Inst_i2c_sender|divider[6]  ;
 ; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |top_level|vga_driver:U4|line_count[3]                                 ;
-; 3:1                ; 17 bits   ; 34 LEs        ; 0 LEs                ; 34 LEs                 ; Yes        ; |top_level|ov7670_pixel_capture:DUT1|address[4]                        ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |top_level|display:u_display|temp_value[10]                            ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |top_level|display:u_display|temp_value[3]                             ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 0 LEs                ; 34 LEs                 ; Yes        ; |top_level|ov7670_pixel_capture:DUT1|address[12]                       ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |top_level|display:u_display|bcd0[0]                                   ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |top_level|display:u_display|bcd1[2]                                   ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |top_level|display:u_display|bcd2[1]                                   ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |top_level|display:u_display|bcd3[0]                                   ;
+; 3:1                ; 12 bits   ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; No         ; |top_level|vga_driver:U4|r[1]                                          ;
 ; 16:1               ; 12 bits   ; 120 LEs       ; 120 LEs              ; 0 LEs                  ; No         ; |top_level|image_buffer:U3|data_out[11]                                ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------+
 
@@ -898,6 +938,23 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------------------------------------------+------------------------------------------------------------------------------+
 
 
++--------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "color_debug:U5"                                                                               ;
++----------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port           ; Type   ; Severity ; Details                                                                             ;
++----------------+--------+----------+-------------------------------------------------------------------------------------+
+; center_pixel   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; center_red     ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; center_green   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; center_blue    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; green_decimal  ; Output ; Info     ; Explicitly unconnected                                                              ;
+; blue_decimal   ; Output ; Info     ; Explicitly unconnected                                                              ;
+; red_detected   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; green_detected ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; blue_detected  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++----------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
 +-----------------------------------------------------------------------------------------------------------------------+
 ; Port Connectivity Checks: "image_buffer:U3"                                                                           ;
 +-------------+--------+----------+-------------------------------------------------------------------------------------+
@@ -947,39 +1004,39 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 249                         ;
-;     ENA               ; 75                          ;
+; arriav_ff             ; 302                         ;
+;     ENA               ; 116                         ;
 ;     ENA SCLR          ; 48                          ;
 ;     ENA SLD           ; 16                          ;
-;     SCLR              ; 30                          ;
+;     SCLR              ; 22                          ;
 ;     SLD               ; 1                           ;
-;     plain             ; 79                          ;
+;     plain             ; 99                          ;
 ; arriav_io_obuf        ; 1                           ;
-; arriav_lcell_comb     ; 419                         ;
-;     arith             ; 85                          ;
-;         1 data inputs ; 84                          ;
+; arriav_lcell_comb     ; 501                         ;
+;     arith             ; 84                          ;
+;         1 data inputs ; 83                          ;
 ;         2 data inputs ; 1                           ;
-;     extend            ; 1                           ;
-;         7 data inputs ; 1                           ;
-;     normal            ; 322                         ;
+;     extend            ; 5                           ;
+;         7 data inputs ; 5                           ;
+;     normal            ; 401                         ;
 ;         0 data inputs ; 2                           ;
-;         1 data inputs ; 1                           ;
-;         2 data inputs ; 48                          ;
-;         3 data inputs ; 39                          ;
-;         4 data inputs ; 73                          ;
-;         5 data inputs ; 70                          ;
-;         6 data inputs ; 89                          ;
+;         1 data inputs ; 7                           ;
+;         2 data inputs ; 54                          ;
+;         3 data inputs ; 35                          ;
+;         4 data inputs ; 113                         ;
+;         5 data inputs ; 68                          ;
+;         6 data inputs ; 122                         ;
 ;     shared            ; 11                          ;
 ;         0 data inputs ; 1                           ;
 ;         1 data inputs ; 2                           ;
 ;         2 data inputs ; 7                           ;
 ;         3 data inputs ; 1                           ;
-; boundary_port         ; 50                          ;
+; boundary_port         ; 78                          ;
 ; generic_pll           ; 2                           ;
 ; stratixv_ram_block    ; 192                         ;
 ;                       ;                             ;
 ; Max LUT depth         ; 3.00                        ;
-; Average LUT depth     ; 2.11                        ;
+; Average LUT depth     ; 2.03                        ;
 +-----------------------+-----------------------------+
 
 
@@ -998,46 +1055,55 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Thu Oct 23 17:01:34 2025
+    Info: Processing started: Fri Oct 24 16:42:14 2025
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Camera -c Camera
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file seven_seg.sv
+    Info (12023): Found entity 1: seven_seg File: C:/Users/jiaho/Documents/Github/Merchants-Major/camera_test1/seven_seg.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file display.sv
+    Info (12023): Found entity 1: display File: C:/Users/jiaho/Documents/Github/Merchants-Major/camera_test1/display.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file colour_debug.sv
+    Info (12023): Found entity 1: color_debug File: C:/Users/jiaho/Documents/Github/Merchants-Major/camera_test1/colour_debug.sv Line: 2
 Info (12021): Found 1 design units, including 1 entities, in source file vga_scaler.sv
-    Info (12023): Found entity 1: vga_scaler File: C:/Users/jiaho/Documents/USYD4thYear2025/MTRX3700/MajorAssignmentProgress/camera_test1/vga_scaler.sv Line: 1
+    Info (12023): Found entity 1: vga_scaler File: C:/Users/jiaho/Documents/Github/Merchants-Major/camera_test1/vga_scaler.sv Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file ov7670_pixel_capture.sv
-    Info (12023): Found entity 1: ov7670_pixel_capture File: C:/Users/jiaho/Documents/USYD4thYear2025/MTRX3700/MajorAssignmentProgress/camera_test1/ov7670_pixel_capture.sv Line: 12
+    Info (12023): Found entity 1: ov7670_pixel_capture File: C:/Users/jiaho/Documents/Github/Merchants-Major/camera_test1/ov7670_pixel_capture.sv Line: 12
 Info (12021): Found 1 design units, including 1 entities, in source file image_buffer.sv
-    Info (12023): Found entity 1: image_buffer File: C:/Users/jiaho/Documents/USYD4thYear2025/MTRX3700/MajorAssignmentProgress/camera_test1/image_buffer.sv Line: 1
+    Info (12023): Found entity 1: image_buffer File: C:/Users/jiaho/Documents/Github/Merchants-Major/camera_test1/image_buffer.sv Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file ov7670_registers.v
-    Info (12023): Found entity 1: ov7670_registers File: C:/Users/jiaho/Documents/USYD4thYear2025/MTRX3700/MajorAssignmentProgress/camera_test1/ov7670_registers.v Line: 41
+    Info (12023): Found entity 1: ov7670_registers File: C:/Users/jiaho/Documents/Github/Merchants-Major/camera_test1/ov7670_registers.v Line: 41
 Info (12021): Found 1 design units, including 1 entities, in source file i2c_sender.v
-    Info (12023): Found entity 1: i2c_sender File: C:/Users/jiaho/Documents/USYD4thYear2025/MTRX3700/MajorAssignmentProgress/camera_test1/i2c_sender.v Line: 27
+    Info (12023): Found entity 1: i2c_sender File: C:/Users/jiaho/Documents/Github/Merchants-Major/camera_test1/i2c_sender.v Line: 27
 Info (12021): Found 1 design units, including 1 entities, in source file ov7670_controller.v
-    Info (12023): Found entity 1: ov7670_controller File: C:/Users/jiaho/Documents/USYD4thYear2025/MTRX3700/MajorAssignmentProgress/camera_test1/ov7670_controller.v Line: 27
+    Info (12023): Found entity 1: ov7670_controller File: C:/Users/jiaho/Documents/Github/Merchants-Major/camera_test1/ov7670_controller.v Line: 27
 Info (12021): Found 1 design units, including 1 entities, in source file top_level.sv
-    Info (12023): Found entity 1: top_level File: C:/Users/jiaho/Documents/USYD4thYear2025/MTRX3700/MajorAssignmentProgress/camera_test1/top_level.sv Line: 1
+    Info (12023): Found entity 1: top_level File: C:/Users/jiaho/Documents/Github/Merchants-Major/camera_test1/top_level.sv Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file video_pll.v
-    Info (12023): Found entity 1: video_PLL File: C:/Users/jiaho/Documents/USYD4thYear2025/MTRX3700/MajorAssignmentProgress/camera_test1/video_PLL.v Line: 8
+    Info (12023): Found entity 1: video_PLL File: C:/Users/jiaho/Documents/Github/Merchants-Major/camera_test1/video_PLL.v Line: 8
 Info (12021): Found 1 design units, including 1 entities, in source file video_pll/video_pll_0002.v
-    Info (12023): Found entity 1: video_PLL_0002 File: C:/Users/jiaho/Documents/USYD4thYear2025/MTRX3700/MajorAssignmentProgress/camera_test1/video_PLL/video_PLL_0002.v Line: 2
+    Info (12023): Found entity 1: video_PLL_0002 File: C:/Users/jiaho/Documents/Github/Merchants-Major/camera_test1/video_PLL/video_PLL_0002.v Line: 2
 Info (12021): Found 1 design units, including 1 entities, in source file image_buffer_tb.sv
-    Info (12023): Found entity 1: image_buffer_tb File: C:/Users/jiaho/Documents/USYD4thYear2025/MTRX3700/MajorAssignmentProgress/camera_test1/image_buffer_tb.sv Line: 4
+    Info (12023): Found entity 1: image_buffer_tb File: C:/Users/jiaho/Documents/Github/Merchants-Major/camera_test1/image_buffer_tb.sv Line: 4
 Info (12021): Found 1 design units, including 1 entities, in source file image_ram.v
-    Info (12023): Found entity 1: image_RAM File: C:/Users/jiaho/Documents/USYD4thYear2025/MTRX3700/MajorAssignmentProgress/camera_test1/image_RAM.v Line: 40
+    Info (12023): Found entity 1: image_RAM File: C:/Users/jiaho/Documents/Github/Merchants-Major/camera_test1/image_RAM.v Line: 40
 Info (12021): Found 1 design units, including 1 entities, in source file vga_driver.sv
-    Info (12023): Found entity 1: vga_driver File: C:/Users/jiaho/Documents/USYD4thYear2025/MTRX3700/MajorAssignmentProgress/camera_test1/vga_driver.sv Line: 2
+    Info (12023): Found entity 1: vga_driver File: C:/Users/jiaho/Documents/Github/Merchants-Major/camera_test1/vga_driver.sv Line: 2
 Info (12021): Found 1 design units, including 1 entities, in source file camera_stream_tb.sv
-    Info (12023): Found entity 1: camera_stream_tb File: C:/Users/jiaho/Documents/USYD4thYear2025/MTRX3700/MajorAssignmentProgress/camera_test1/camera_stream_tb.sv Line: 3
-Warning (10236): Verilog HDL Implicit Net warning at top_level.sv(29): created implicit net for "resend_camera_config" File: C:/Users/jiaho/Documents/USYD4thYear2025/MTRX3700/MajorAssignmentProgress/camera_test1/top_level.sv Line: 29
-Warning (10236): Verilog HDL Implicit Net warning at top_level.sv(57): created implicit net for "OV7670_PWDN" File: C:/Users/jiaho/Documents/USYD4thYear2025/MTRX3700/MajorAssignmentProgress/camera_test1/top_level.sv Line: 57
+    Info (12023): Found entity 1: camera_stream_tb File: C:/Users/jiaho/Documents/Github/Merchants-Major/camera_test1/camera_stream_tb.sv Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file roi_overlay.sv
+    Info (12023): Found entity 1: roi_overlay File: C:/Users/jiaho/Documents/Github/Merchants-Major/camera_test1/roi_overlay.sv Line: 3
+Warning (10236): Verilog HDL Implicit Net warning at top_level.sv(40): created implicit net for "resent_camera_config" File: C:/Users/jiaho/Documents/Github/Merchants-Major/camera_test1/top_level.sv Line: 40
+Warning (10236): Verilog HDL Implicit Net warning at top_level.sv(61): created implicit net for "OV7670_PWDN" File: C:/Users/jiaho/Documents/Github/Merchants-Major/camera_test1/top_level.sv Line: 61
 Info (12127): Elaborating entity "top_level" for the top level hierarchy
-Warning (10034): Output port "OV7670_PWON" at top_level.sv(10) has no driver File: C:/Users/jiaho/Documents/USYD4thYear2025/MTRX3700/MajorAssignmentProgress/camera_test1/top_level.sv Line: 10
-Info (12128): Elaborating entity "video_PLL" for hierarchy "video_PLL:U0" File: C:/Users/jiaho/Documents/USYD4thYear2025/MTRX3700/MajorAssignmentProgress/camera_test1/top_level.sv Line: 43
-Info (12128): Elaborating entity "video_PLL_0002" for hierarchy "video_PLL:U0|video_PLL_0002:video_pll_inst" File: C:/Users/jiaho/Documents/USYD4thYear2025/MTRX3700/MajorAssignmentProgress/camera_test1/video_PLL.v Line: 22
-Info (12128): Elaborating entity "altera_pll" for hierarchy "video_PLL:U0|video_PLL_0002:video_pll_inst|altera_pll:altera_pll_i" File: C:/Users/jiaho/Documents/USYD4thYear2025/MTRX3700/MajorAssignmentProgress/camera_test1/video_PLL/video_PLL_0002.v Line: 88
+Warning (10036): Verilog HDL or VHDL warning at top_level.sv(40): object "resent_camera_config" assigned a value but never read File: C:/Users/jiaho/Documents/Github/Merchants-Major/camera_test1/top_level.sv Line: 40
+Warning (10034): Output port "OV7670_PWON" at top_level.sv(10) has no driver File: C:/Users/jiaho/Documents/Github/Merchants-Major/camera_test1/top_level.sv Line: 10
+Info (12128): Elaborating entity "video_PLL" for hierarchy "video_PLL:U0" File: C:/Users/jiaho/Documents/Github/Merchants-Major/camera_test1/top_level.sv Line: 47
+Info (12128): Elaborating entity "video_PLL_0002" for hierarchy "video_PLL:U0|video_PLL_0002:video_pll_inst" File: C:/Users/jiaho/Documents/Github/Merchants-Major/camera_test1/video_PLL.v Line: 22
+Info (12128): Elaborating entity "altera_pll" for hierarchy "video_PLL:U0|video_PLL_0002:video_pll_inst|altera_pll:altera_pll_i" File: C:/Users/jiaho/Documents/Github/Merchants-Major/camera_test1/video_PLL/video_PLL_0002.v Line: 88
 Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "wire_to_nowhere_64" into its bus
-Info (12130): Elaborated megafunction instantiation "video_PLL:U0|video_PLL_0002:video_pll_inst|altera_pll:altera_pll_i" File: C:/Users/jiaho/Documents/USYD4thYear2025/MTRX3700/MajorAssignmentProgress/camera_test1/video_PLL/video_PLL_0002.v Line: 88
-Info (12133): Instantiated megafunction "video_PLL:U0|video_PLL_0002:video_pll_inst|altera_pll:altera_pll_i" with the following parameter: File: C:/Users/jiaho/Documents/USYD4thYear2025/MTRX3700/MajorAssignmentProgress/camera_test1/video_PLL/video_PLL_0002.v Line: 88
+Info (12130): Elaborated megafunction instantiation "video_PLL:U0|video_PLL_0002:video_pll_inst|altera_pll:altera_pll_i" File: C:/Users/jiaho/Documents/Github/Merchants-Major/camera_test1/video_PLL/video_PLL_0002.v Line: 88
+Info (12133): Instantiated megafunction "video_PLL:U0|video_PLL_0002:video_pll_inst|altera_pll:altera_pll_i" with the following parameter: File: C:/Users/jiaho/Documents/Github/Merchants-Major/camera_test1/video_PLL/video_PLL_0002.v Line: 88
     Info (12134): Parameter "fractional_vco_multiplier" = "false"
     Info (12134): Parameter "reference_clock_frequency" = "50.0 MHz"
     Info (12134): Parameter "operation_mode" = "direct"
@@ -1098,22 +1164,22 @@ Info (12133): Instantiated megafunction "video_PLL:U0|video_PLL_0002:video_pll_i
     Info (12134): Parameter "duty_cycle17" = "50"
     Info (12134): Parameter "pll_type" = "General"
     Info (12134): Parameter "pll_subtype" = "General"
-Info (12128): Elaborating entity "ov7670_controller" for hierarchy "ov7670_controller:U1" File: C:/Users/jiaho/Documents/USYD4thYear2025/MTRX3700/MajorAssignmentProgress/camera_test1/top_level.sv Line: 58
-Info (12128): Elaborating entity "i2c_sender" for hierarchy "ov7670_controller:U1|i2c_sender:Inst_i2c_sender" File: C:/Users/jiaho/Documents/USYD4thYear2025/MTRX3700/MajorAssignmentProgress/camera_test1/ov7670_controller.v Line: 58
-Warning (10230): Verilog HDL assignment warning at i2c_sender.v(65): truncated value with size 32 to match size of target (8) File: C:/Users/jiaho/Documents/USYD4thYear2025/MTRX3700/MajorAssignmentProgress/camera_test1/i2c_sender.v Line: 65
-Warning (10230): Verilog HDL assignment warning at i2c_sender.v(191): truncated value with size 32 to match size of target (8) File: C:/Users/jiaho/Documents/USYD4thYear2025/MTRX3700/MajorAssignmentProgress/camera_test1/i2c_sender.v Line: 191
-Info (12128): Elaborating entity "ov7670_registers" for hierarchy "ov7670_controller:U1|ov7670_registers:Inst_ov7670_registers" File: C:/Users/jiaho/Documents/USYD4thYear2025/MTRX3700/MajorAssignmentProgress/camera_test1/ov7670_controller.v Line: 70
-Warning (10230): Verilog HDL assignment warning at ov7670_registers.v(68): truncated value with size 32 to match size of target (8) File: C:/Users/jiaho/Documents/USYD4thYear2025/MTRX3700/MajorAssignmentProgress/camera_test1/ov7670_registers.v Line: 68
-Info (12128): Elaborating entity "ov7670_pixel_capture" for hierarchy "ov7670_pixel_capture:DUT1" File: C:/Users/jiaho/Documents/USYD4thYear2025/MTRX3700/MajorAssignmentProgress/camera_test1/top_level.sv Line: 69
-Warning (10230): Verilog HDL assignment warning at ov7670_pixel_capture.sv(75): truncated value with size 32 to match size of target (17) File: C:/Users/jiaho/Documents/USYD4thYear2025/MTRX3700/MajorAssignmentProgress/camera_test1/ov7670_pixel_capture.sv Line: 75
-Info (12128): Elaborating entity "image_buffer" for hierarchy "image_buffer:U3" File: C:/Users/jiaho/Documents/USYD4thYear2025/MTRX3700/MajorAssignmentProgress/camera_test1/top_level.sv Line: 93
-Warning (10230): Verilog HDL assignment warning at image_buffer.sv(30): truncated value with size 32 to match size of target (10) File: C:/Users/jiaho/Documents/USYD4thYear2025/MTRX3700/MajorAssignmentProgress/camera_test1/image_buffer.sv Line: 30
-Warning (10230): Verilog HDL assignment warning at image_buffer.sv(35): truncated value with size 32 to match size of target (9) File: C:/Users/jiaho/Documents/USYD4thYear2025/MTRX3700/MajorAssignmentProgress/camera_test1/image_buffer.sv Line: 35
-Warning (10034): Output port "image_end" at image_buffer.sv(11) has no driver File: C:/Users/jiaho/Documents/USYD4thYear2025/MTRX3700/MajorAssignmentProgress/camera_test1/image_buffer.sv Line: 11
-Info (12128): Elaborating entity "image_RAM" for hierarchy "image_buffer:U3|image_RAM:Inst_buffer_top" File: C:/Users/jiaho/Documents/USYD4thYear2025/MTRX3700/MajorAssignmentProgress/camera_test1/image_buffer.sv Line: 74
-Info (12128): Elaborating entity "altsyncram" for hierarchy "image_buffer:U3|image_RAM:Inst_buffer_top|altsyncram:altsyncram_component" File: C:/Users/jiaho/Documents/USYD4thYear2025/MTRX3700/MajorAssignmentProgress/camera_test1/image_RAM.v Line: 91
-Info (12130): Elaborated megafunction instantiation "image_buffer:U3|image_RAM:Inst_buffer_top|altsyncram:altsyncram_component" File: C:/Users/jiaho/Documents/USYD4thYear2025/MTRX3700/MajorAssignmentProgress/camera_test1/image_RAM.v Line: 91
-Info (12133): Instantiated megafunction "image_buffer:U3|image_RAM:Inst_buffer_top|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/jiaho/Documents/USYD4thYear2025/MTRX3700/MajorAssignmentProgress/camera_test1/image_RAM.v Line: 91
+Info (12128): Elaborating entity "ov7670_controller" for hierarchy "ov7670_controller:U1" File: C:/Users/jiaho/Documents/Github/Merchants-Major/camera_test1/top_level.sv Line: 62
+Info (12128): Elaborating entity "i2c_sender" for hierarchy "ov7670_controller:U1|i2c_sender:Inst_i2c_sender" File: C:/Users/jiaho/Documents/Github/Merchants-Major/camera_test1/ov7670_controller.v Line: 58
+Warning (10230): Verilog HDL assignment warning at i2c_sender.v(65): truncated value with size 32 to match size of target (8) File: C:/Users/jiaho/Documents/Github/Merchants-Major/camera_test1/i2c_sender.v Line: 65
+Warning (10230): Verilog HDL assignment warning at i2c_sender.v(191): truncated value with size 32 to match size of target (8) File: C:/Users/jiaho/Documents/Github/Merchants-Major/camera_test1/i2c_sender.v Line: 191
+Info (12128): Elaborating entity "ov7670_registers" for hierarchy "ov7670_controller:U1|ov7670_registers:Inst_ov7670_registers" File: C:/Users/jiaho/Documents/Github/Merchants-Major/camera_test1/ov7670_controller.v Line: 70
+Warning (10230): Verilog HDL assignment warning at ov7670_registers.v(68): truncated value with size 32 to match size of target (8) File: C:/Users/jiaho/Documents/Github/Merchants-Major/camera_test1/ov7670_registers.v Line: 68
+Info (12128): Elaborating entity "ov7670_pixel_capture" for hierarchy "ov7670_pixel_capture:DUT1" File: C:/Users/jiaho/Documents/Github/Merchants-Major/camera_test1/top_level.sv Line: 73
+Warning (10230): Verilog HDL assignment warning at ov7670_pixel_capture.sv(75): truncated value with size 32 to match size of target (17) File: C:/Users/jiaho/Documents/Github/Merchants-Major/camera_test1/ov7670_pixel_capture.sv Line: 75
+Info (12128): Elaborating entity "image_buffer" for hierarchy "image_buffer:U3" File: C:/Users/jiaho/Documents/Github/Merchants-Major/camera_test1/top_level.sv Line: 97
+Warning (10230): Verilog HDL assignment warning at image_buffer.sv(30): truncated value with size 32 to match size of target (10) File: C:/Users/jiaho/Documents/Github/Merchants-Major/camera_test1/image_buffer.sv Line: 30
+Warning (10230): Verilog HDL assignment warning at image_buffer.sv(35): truncated value with size 32 to match size of target (9) File: C:/Users/jiaho/Documents/Github/Merchants-Major/camera_test1/image_buffer.sv Line: 35
+Warning (10034): Output port "image_end" at image_buffer.sv(11) has no driver File: C:/Users/jiaho/Documents/Github/Merchants-Major/camera_test1/image_buffer.sv Line: 11
+Info (12128): Elaborating entity "image_RAM" for hierarchy "image_buffer:U3|image_RAM:Inst_buffer_top" File: C:/Users/jiaho/Documents/Github/Merchants-Major/camera_test1/image_buffer.sv Line: 74
+Info (12128): Elaborating entity "altsyncram" for hierarchy "image_buffer:U3|image_RAM:Inst_buffer_top|altsyncram:altsyncram_component" File: C:/Users/jiaho/Documents/Github/Merchants-Major/camera_test1/image_RAM.v Line: 91
+Info (12130): Elaborated megafunction instantiation "image_buffer:U3|image_RAM:Inst_buffer_top|altsyncram:altsyncram_component" File: C:/Users/jiaho/Documents/Github/Merchants-Major/camera_test1/image_RAM.v Line: 91
+Info (12133): Instantiated megafunction "image_buffer:U3|image_RAM:Inst_buffer_top|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/jiaho/Documents/Github/Merchants-Major/camera_test1/image_RAM.v Line: 91
     Info (12134): Parameter "address_aclr_b" = "NONE"
     Info (12134): Parameter "address_reg_b" = "CLOCK1"
     Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
@@ -1133,30 +1199,42 @@ Info (12133): Instantiated megafunction "image_buffer:U3|image_RAM:Inst_buffer_t
     Info (12134): Parameter "width_b" = "12"
     Info (12134): Parameter "width_byteena_a" = "1"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_a2q1.tdf
-    Info (12023): Found entity 1: altsyncram_a2q1 File: C:/Users/jiaho/Documents/USYD4thYear2025/MTRX3700/MajorAssignmentProgress/camera_test1/db/altsyncram_a2q1.tdf Line: 34
+    Info (12023): Found entity 1: altsyncram_a2q1 File: C:/Users/jiaho/Documents/Github/Merchants-Major/camera_test1/db/altsyncram_a2q1.tdf Line: 34
 Info (12128): Elaborating entity "altsyncram_a2q1" for hierarchy "image_buffer:U3|image_RAM:Inst_buffer_top|altsyncram:altsyncram_component|altsyncram_a2q1:auto_generated" File: c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
 Info (12021): Found 1 design units, including 1 entities, in source file db/decode_dla.tdf
-    Info (12023): Found entity 1: decode_dla File: C:/Users/jiaho/Documents/USYD4thYear2025/MTRX3700/MajorAssignmentProgress/camera_test1/db/decode_dla.tdf Line: 23
-Info (12128): Elaborating entity "decode_dla" for hierarchy "image_buffer:U3|image_RAM:Inst_buffer_top|altsyncram:altsyncram_component|altsyncram_a2q1:auto_generated|decode_dla:decode2" File: C:/Users/jiaho/Documents/USYD4thYear2025/MTRX3700/MajorAssignmentProgress/camera_test1/db/altsyncram_a2q1.tdf Line: 47
+    Info (12023): Found entity 1: decode_dla File: C:/Users/jiaho/Documents/Github/Merchants-Major/camera_test1/db/decode_dla.tdf Line: 23
+Info (12128): Elaborating entity "decode_dla" for hierarchy "image_buffer:U3|image_RAM:Inst_buffer_top|altsyncram:altsyncram_component|altsyncram_a2q1:auto_generated|decode_dla:decode2" File: C:/Users/jiaho/Documents/Github/Merchants-Major/camera_test1/db/altsyncram_a2q1.tdf Line: 47
 Info (12021): Found 1 design units, including 1 entities, in source file db/decode_61a.tdf
-    Info (12023): Found entity 1: decode_61a File: C:/Users/jiaho/Documents/USYD4thYear2025/MTRX3700/MajorAssignmentProgress/camera_test1/db/decode_61a.tdf Line: 23
-Info (12128): Elaborating entity "decode_61a" for hierarchy "image_buffer:U3|image_RAM:Inst_buffer_top|altsyncram:altsyncram_component|altsyncram_a2q1:auto_generated|decode_61a:rden_decode_b" File: C:/Users/jiaho/Documents/USYD4thYear2025/MTRX3700/MajorAssignmentProgress/camera_test1/db/altsyncram_a2q1.tdf Line: 48
+    Info (12023): Found entity 1: decode_61a File: C:/Users/jiaho/Documents/Github/Merchants-Major/camera_test1/db/decode_61a.tdf Line: 23
+Info (12128): Elaborating entity "decode_61a" for hierarchy "image_buffer:U3|image_RAM:Inst_buffer_top|altsyncram:altsyncram_component|altsyncram_a2q1:auto_generated|decode_61a:rden_decode_b" File: C:/Users/jiaho/Documents/Github/Merchants-Major/camera_test1/db/altsyncram_a2q1.tdf Line: 48
 Info (12021): Found 1 design units, including 1 entities, in source file db/mux_8hb.tdf
-    Info (12023): Found entity 1: mux_8hb File: C:/Users/jiaho/Documents/USYD4thYear2025/MTRX3700/MajorAssignmentProgress/camera_test1/db/mux_8hb.tdf Line: 23
-Info (12128): Elaborating entity "mux_8hb" for hierarchy "image_buffer:U3|image_RAM:Inst_buffer_top|altsyncram:altsyncram_component|altsyncram_a2q1:auto_generated|mux_8hb:mux3" File: C:/Users/jiaho/Documents/USYD4thYear2025/MTRX3700/MajorAssignmentProgress/camera_test1/db/altsyncram_a2q1.tdf Line: 50
-Info (12128): Elaborating entity "vga_driver" for hierarchy "vga_driver:U4" File: C:/Users/jiaho/Documents/USYD4thYear2025/MTRX3700/MajorAssignmentProgress/camera_test1/top_level.sv Line: 108
-Warning (10230): Verilog HDL assignment warning at vga_driver.sv(45): truncated value with size 32 to match size of target (21) File: C:/Users/jiaho/Documents/USYD4thYear2025/MTRX3700/MajorAssignmentProgress/camera_test1/vga_driver.sv Line: 45
-Warning (10230): Verilog HDL assignment warning at vga_driver.sv(46): truncated value with size 32 to match size of target (12) File: C:/Users/jiaho/Documents/USYD4thYear2025/MTRX3700/MajorAssignmentProgress/camera_test1/vga_driver.sv Line: 46
-Warning (10270): Verilog HDL Case Statement warning at vga_driver.sv(67): incomplete case statement has no default case item File: C:/Users/jiaho/Documents/USYD4thYear2025/MTRX3700/MajorAssignmentProgress/camera_test1/vga_driver.sv Line: 67
-Warning (10230): Verilog HDL assignment warning at vga_driver.sv(81): truncated value with size 32 to match size of target (1) File: C:/Users/jiaho/Documents/USYD4thYear2025/MTRX3700/MajorAssignmentProgress/camera_test1/vga_driver.sv Line: 81
+    Info (12023): Found entity 1: mux_8hb File: C:/Users/jiaho/Documents/Github/Merchants-Major/camera_test1/db/mux_8hb.tdf Line: 23
+Info (12128): Elaborating entity "mux_8hb" for hierarchy "image_buffer:U3|image_RAM:Inst_buffer_top|altsyncram:altsyncram_component|altsyncram_a2q1:auto_generated|mux_8hb:mux3" File: C:/Users/jiaho/Documents/Github/Merchants-Major/camera_test1/db/altsyncram_a2q1.tdf Line: 50
+Info (12128): Elaborating entity "vga_driver" for hierarchy "vga_driver:U4" File: C:/Users/jiaho/Documents/Github/Merchants-Major/camera_test1/top_level.sv Line: 113
+Warning (10230): Verilog HDL assignment warning at vga_driver.sv(45): truncated value with size 32 to match size of target (21) File: C:/Users/jiaho/Documents/Github/Merchants-Major/camera_test1/vga_driver.sv Line: 45
+Warning (10230): Verilog HDL assignment warning at vga_driver.sv(46): truncated value with size 32 to match size of target (12) File: C:/Users/jiaho/Documents/Github/Merchants-Major/camera_test1/vga_driver.sv Line: 46
+Warning (10270): Verilog HDL Case Statement warning at vga_driver.sv(67): incomplete case statement has no default case item File: C:/Users/jiaho/Documents/Github/Merchants-Major/camera_test1/vga_driver.sv Line: 67
+Warning (10230): Verilog HDL assignment warning at vga_driver.sv(81): truncated value with size 32 to match size of target (1) File: C:/Users/jiaho/Documents/Github/Merchants-Major/camera_test1/vga_driver.sv Line: 81
+Info (12128): Elaborating entity "color_debug" for hierarchy "color_debug:U5" File: C:/Users/jiaho/Documents/Github/Merchants-Major/camera_test1/top_level.sv Line: 141
+Warning (10230): Verilog HDL assignment warning at colour_debug.sv(35): truncated value with size 32 to match size of target (10) File: C:/Users/jiaho/Documents/Github/Merchants-Major/camera_test1/colour_debug.sv Line: 35
+Warning (10230): Verilog HDL assignment warning at colour_debug.sv(43): truncated value with size 32 to match size of target (9) File: C:/Users/jiaho/Documents/Github/Merchants-Major/camera_test1/colour_debug.sv Line: 43
+Info (12128): Elaborating entity "roi_overlay" for hierarchy "roi_overlay:overlay_inst" File: C:/Users/jiaho/Documents/Github/Merchants-Major/camera_test1/top_level.sv Line: 153
+Info (12128): Elaborating entity "display" for hierarchy "display:u_display" File: C:/Users/jiaho/Documents/Github/Merchants-Major/camera_test1/top_level.sv Line: 165
+Warning (10230): Verilog HDL assignment warning at display.sv(33): truncated value with size 32 to match size of target (4) File: C:/Users/jiaho/Documents/Github/Merchants-Major/camera_test1/display.sv Line: 33
+Warning (10270): Verilog HDL Case Statement warning at display.sv(41): incomplete case statement has no default case item File: C:/Users/jiaho/Documents/Github/Merchants-Major/camera_test1/display.sv Line: 41
+Warning (10230): Verilog HDL assignment warning at display.sv(71): truncated value with size 32 to match size of target (4) File: C:/Users/jiaho/Documents/Github/Merchants-Major/camera_test1/display.sv Line: 71
+Warning (10230): Verilog HDL assignment warning at display.sv(72): truncated value with size 32 to match size of target (4) File: C:/Users/jiaho/Documents/Github/Merchants-Major/camera_test1/display.sv Line: 72
+Warning (10230): Verilog HDL assignment warning at display.sv(73): truncated value with size 32 to match size of target (4) File: C:/Users/jiaho/Documents/Github/Merchants-Major/camera_test1/display.sv Line: 73
+Warning (10230): Verilog HDL assignment warning at display.sv(74): truncated value with size 32 to match size of target (4) File: C:/Users/jiaho/Documents/Github/Merchants-Major/camera_test1/display.sv Line: 74
+Info (12128): Elaborating entity "seven_seg" for hierarchy "display:u_display|seven_seg:u_digit0" File: C:/Users/jiaho/Documents/Github/Merchants-Major/camera_test1/display.sv Line: 54
 Warning (12241): 2 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "OV7670_PWON" is stuck at GND File: C:/Users/jiaho/Documents/USYD4thYear2025/MTRX3700/MajorAssignmentProgress/camera_test1/top_level.sv Line: 10
-    Warning (13410): Pin "OV7670_RESET" is stuck at VCC File: C:/Users/jiaho/Documents/USYD4thYear2025/MTRX3700/MajorAssignmentProgress/camera_test1/top_level.sv Line: 11
-    Warning (13410): Pin "VGA_SYNC_N" is stuck at GND File: C:/Users/jiaho/Documents/USYD4thYear2025/MTRX3700/MajorAssignmentProgress/camera_test1/top_level.sv Line: 20
+    Warning (13410): Pin "OV7670_PWON" is stuck at GND File: C:/Users/jiaho/Documents/Github/Merchants-Major/camera_test1/top_level.sv Line: 10
+    Warning (13410): Pin "OV7670_RESET" is stuck at VCC File: C:/Users/jiaho/Documents/Github/Merchants-Major/camera_test1/top_level.sv Line: 11
+    Warning (13410): Pin "VGA_SYNC_N" is stuck at GND File: C:/Users/jiaho/Documents/Github/Merchants-Major/camera_test1/top_level.sv Line: 20
 Info (286030): Timing-Driven Synthesis is running
 Info (17049): 16 registers lost all their fanouts during netlist optimizations.
-Info (144001): Generated suppressed messages file C:/Users/jiaho/Documents/USYD4thYear2025/MTRX3700/MajorAssignmentProgress/camera_test1/output_files/Camera.map.smsg
+Info (144001): Generated suppressed messages file C:/Users/jiaho/Documents/Github/Merchants-Major/camera_test1/output_files/Camera.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 8 node(s), including 0 DDIO, 2 PLL, 0 transceiver and 0 LCELL
 Warning: RST port on the PLL is not properly connected on instance video_PLL:U0|video_PLL_0002:video_pll_inst|altera_pll:altera_pll_i|general[1].gpll. The reset port on the PLL should be connected. If the PLL loses lock for any reason, you might need to manually reset the PLL in order to re-establish lock to the reference clock. File: c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altera_pll.v Line: 749
@@ -1165,27 +1243,28 @@ Warning: RST port on the PLL is not properly connected on instance video_PLL:U0|
     Info: Must be connected
 Warning: OUTCLK port on the PLL is not properly connected on instance video_PLL:U0|video_PLL_0002:video_pll_inst|altera_pll:altera_pll_i|general[0].gpll. The output clock port on the PLL must be connected. File: c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altera_pll.v Line: 749
     Info: Must be connected
-Warning (21074): Design contains 3 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "KEY[1]" File: C:/Users/jiaho/Documents/USYD4thYear2025/MTRX3700/MajorAssignmentProgress/camera_test1/top_level.sv Line: 12
-    Warning (15610): No output dependent on input pin "KEY[2]" File: C:/Users/jiaho/Documents/USYD4thYear2025/MTRX3700/MajorAssignmentProgress/camera_test1/top_level.sv Line: 12
-    Warning (15610): No output dependent on input pin "KEY[3]" File: C:/Users/jiaho/Documents/USYD4thYear2025/MTRX3700/MajorAssignmentProgress/camera_test1/top_level.sv Line: 12
-Info (21057): Implemented 689 device resources after synthesis - the final resource count might be different
+Warning (21074): Design contains 4 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "KEY[0]" File: C:/Users/jiaho/Documents/Github/Merchants-Major/camera_test1/top_level.sv Line: 12
+    Warning (15610): No output dependent on input pin "KEY[1]" File: C:/Users/jiaho/Documents/Github/Merchants-Major/camera_test1/top_level.sv Line: 12
+    Warning (15610): No output dependent on input pin "KEY[2]" File: C:/Users/jiaho/Documents/Github/Merchants-Major/camera_test1/top_level.sv Line: 12
+    Warning (15610): No output dependent on input pin "KEY[3]" File: C:/Users/jiaho/Documents/Github/Merchants-Major/camera_test1/top_level.sv Line: 12
+Info (21057): Implemented 815 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 16 input pins
-    Info (21059): Implemented 33 output pins
+    Info (21059): Implemented 61 output pins
     Info (21060): Implemented 1 bidirectional pins
-    Info (21061): Implemented 445 logic cells
+    Info (21061): Implemented 543 logic cells
     Info (21064): Implemented 192 RAM segments
     Info (21065): Implemented 2 PLLs
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 27 warnings
-    Info: Peak virtual memory: 4937 megabytes
-    Info: Processing ended: Thu Oct 23 17:01:50 2025
-    Info: Elapsed time: 00:00:16
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 37 warnings
+    Info: Peak virtual memory: 4935 megabytes
+    Info: Processing ended: Fri Oct 24 16:42:26 2025
+    Info: Elapsed time: 00:00:12
     Info: Total CPU time (on all processors): 00:00:25
 
 
 +------------------------------------------+
 ; Analysis & Synthesis Suppressed Messages ;
 +------------------------------------------+
-The suppressed messages can be found in C:/Users/jiaho/Documents/USYD4thYear2025/MTRX3700/MajorAssignmentProgress/camera_test1/output_files/Camera.map.smsg.
+The suppressed messages can be found in C:/Users/jiaho/Documents/Github/Merchants-Major/camera_test1/output_files/Camera.map.smsg.
 
 

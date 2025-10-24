@@ -24,6 +24,8 @@ module top_level(
 	output [6:0] HEX1,
 	output [6:0] HEX2,
 	output [6:0] HEX3
+	
+	
 
 );
 	logic sys_reset = 1'b0;
@@ -98,7 +100,8 @@ module top_level(
 	vga_driver U4(
 		 .clk(clk_25_vga), 
 		 .rst(sys_reset),
-		 .pixel(video_data),
+//		 .pixel(video_data),
+		 .pixel(video_out),
 		 .hsync(VGA_HS),
 		 .vsync(VGA_VS),
 		 .r(VGA_R),
@@ -136,6 +139,20 @@ module top_level(
         .green_detected(debug_green_det),
         .blue_detected(debug_blue_det)
     );
+	 
+	 
+	 logic [11:0] video_out;
+
+	 
+	 
+	roi_overlay overlay_inst (
+		 .x_count(debug_x_count),
+		 .y_count(debug_y_count),
+		 .video_in(video_data),
+		 .video_out(video_out)
+	);
+
+
     
     // Display RED value on all 4 digits (only HEX1-0 will show 00-15)
     display u_display (

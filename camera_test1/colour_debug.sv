@@ -1,3 +1,4 @@
+
 module color_debug (
 
     input  logic        clk,
@@ -81,5 +82,21 @@ module color_debug (
     assign blue_detected  = (center_blue  > center_red   + 4'd3) && 
                             (center_blue  > center_green + 4'd3) &&
                             (center_blue  > 4'd6);
+	
+									 
+//	//	// Pseudocode for normalised RGB
+//	logic [9:0] R, G, B;
+//	logic [11:0] sum;
+//	logic [7:0] r_norm, g_norm, b_norm;
+//	//
+//	sum = R + G + B + 1; // avoid divide by 0
+//	r_norm = (R << 8) / sum; // multiply by 256 before divide
+//	g_norm = (G << 8) / sum;
+//	b_norm = (B << 8) / sum;
+//
+//	
+	
+									 
                                 
 endmodule
+
