@@ -1,0 +1,1 @@
+Info (10281): Verilog HDL Declaration information at sonar_range.sv(7): object "trig" differs only in case from object "TRIG" in the same scope File: /SharedDir/sensor_driver/sonar_range.sv Line: 7

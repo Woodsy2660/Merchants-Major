@@ -1,0 +1,87 @@
+# do sensor_driver_run_msim_rtl_verilog.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 2020.1 Lib Mapping Utility 2020.02 Feb 28 2020
+# vmap work rtl_work 
+# Copying /intelFPGA_lite/20.1.1/modelsim_ase/linuxaloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vlog -vlog01compat -work work +incdir+/SharedDir/sensor_driver {/SharedDir/sensor_driver/sonar_pll.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 10:42:10 on Oct 27,2025
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+/SharedDir/sensor_driver" /SharedDir/sensor_driver/sonar_pll.v 
+# -- Compiling module sonar_pll
+# 
+# Top level modules:
+# 	sonar_pll
+# End time: 10:42:11 on Oct 27,2025, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+/SharedDir/sensor_driver/db {/SharedDir/sensor_driver/db/sonar_pll_altpll.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 10:42:11 on Oct 27,2025
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+/SharedDir/sensor_driver/db" /SharedDir/sensor_driver/db/sonar_pll_altpll.v 
+# -- Compiling module sonar_pll_altpll
+# 
+# Top level modules:
+# 	sonar_pll_altpll
+# End time: 10:42:11 on Oct 27,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+/SharedDir/sensor_driver {/SharedDir/sensor_driver/display.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 10:42:11 on Oct 27,2025
+# vlog -reportprogress 300 -sv -work work "+incdir+/SharedDir/sensor_driver" /SharedDir/sensor_driver/display.sv 
+# -- Compiling module display
+# 
+# Top level modules:
+# 	display
+# End time: 10:42:12 on Oct 27,2025, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+/SharedDir/sensor_driver {/SharedDir/sensor_driver/seven_seg.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 10:42:12 on Oct 27,2025
+# vlog -reportprogress 300 -sv -work work "+incdir+/SharedDir/sensor_driver" /SharedDir/sensor_driver/seven_seg.sv 
+# -- Compiling module seven_seg
+# 
+# Top level modules:
+# 	seven_seg
+# End time: 10:42:12 on Oct 27,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+/SharedDir/sensor_driver {/SharedDir/sensor_driver/sonar_range.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 10:42:12 on Oct 27,2025
+# vlog -reportprogress 300 -sv -work work "+incdir+/SharedDir/sensor_driver" /SharedDir/sensor_driver/sonar_range.sv 
+# -- Compiling module sonar_range
+# 
+# Top level modules:
+# 	sonar_range
+# End time: 10:42:13 on Oct 27,2025, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+/SharedDir/sensor_driver {/SharedDir/sensor_driver/top_level.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 10:42:13 on Oct 27,2025
+# vlog -reportprogress 300 -sv -work work "+incdir+/SharedDir/sensor_driver" /SharedDir/sensor_driver/top_level.sv 
+# -- Compiling module top_level
+# 
+# Top level modules:
+# 	top_level
+# End time: 10:42:13 on Oct 27,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vlog -sv -work work +incdir+/SharedDir/sensor_driver {/SharedDir/sensor_driver/sensor_driver_tb.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 10:42:13 on Oct 27,2025
+# vlog -reportprogress 300 -sv -work work "+incdir+/SharedDir/sensor_driver" /SharedDir/sensor_driver/sensor_driver_tb.sv 
+# ** Error: (vlog-7) Failed to open design unit file "/SharedDir/sensor_driver/sensor_driver_tb.sv" in read mode.
+# No such file or directory. (errno = ENOENT)
+# End time: 10:42:13 on Oct 27,2025, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# ** Error: /intelFPGA_lite/20.1.1/modelsim_ase/linuxaloem/vlog failed.
+# Error in macro ./sensor_driver_run_msim_rtl_verilog.do line 15
+# /intelFPGA_lite/20.1.1/modelsim_ase/linuxaloem/vlog failed.
+#     while executing
+# "vlog -sv -work work +incdir+/SharedDir/sensor_driver {/SharedDir/sensor_driver/sensor_driver_tb.sv}"
+# 
+# stdin: <EOF>
