@@ -28,7 +28,7 @@ module color_debug (
     // Color detection flags
     output logic        red_detected,
     output logic        green_detected,
-    output logic        blue_detected
+    output logic        black_detected
 );
 
     // ========== VGA Position Counter (640x480) ==========
@@ -105,7 +105,7 @@ module color_debug (
         .v(center_value),
         .is_red(red_detected),
         .is_green(green_detected),
-        .is_blue(blue_detected)
+        .is_black(black_detected)
     );
     
 endmodule

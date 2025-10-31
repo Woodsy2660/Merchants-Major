@@ -8,6 +8,10 @@
 					"strict" : false
 				},
 				{
+					"name" : "LEDR[2]",
+					"strict" : false
+				},
+				{
 					"name" : "VGA_HS",
 					"strict" : false
 				},

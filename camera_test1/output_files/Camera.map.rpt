@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Camera
-Fri Oct 24 17:52:31 2025
+Fri Oct 31 21:37:25 2025
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -15,35 +15,40 @@ Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
   7. Analysis & Synthesis Resource Utilization by Entity
   8. Analysis & Synthesis RAM Summary
   9. Analysis & Synthesis IP Cores Summary
- 10. State Machine - |top_level|color_debug:U5|rgb_to_hsv:hsv_converter|max_channel_d
- 11. State Machine - |top_level|color_debug:U5|rgb_to_hsv:hsv_converter|max_channel
- 12. State Machine - |top_level|ov7670_controller:U1|ov7670_registers:Inst_ov7670_registers|sreg
- 13. Registers Removed During Synthesis
- 14. General Register Statistics
- 15. Inverted Register Statistics
- 16. Multiplexer Restructuring Statistics (Restructuring Performed)
- 17. Source assignments for Top-level Entity: |top_level
- 18. Source assignments for image_buffer:U3|image_RAM:Inst_buffer_top|altsyncram:altsyncram_component|altsyncram_a2q1:auto_generated
- 19. Source assignments for image_buffer:U3|image_RAM:Inst_buffer_bottom|altsyncram:altsyncram_component|altsyncram_a2q1:auto_generated
- 20. Parameter Settings for User Entity Instance: video_PLL:U0|video_PLL_0002:video_pll_inst|altera_pll:altera_pll_i
- 21. Parameter Settings for User Entity Instance: ov7670_controller:U1
- 22. Parameter Settings for User Entity Instance: image_buffer:U3|image_RAM:Inst_buffer_top|altsyncram:altsyncram_component
- 23. Parameter Settings for User Entity Instance: image_buffer:U3|image_RAM:Inst_buffer_bottom|altsyncram:altsyncram_component
- 24. Parameter Settings for User Entity Instance: color_debug:U5|color_detector:detector
- 25. Parameter Settings for Inferred Entity Instance: color_debug:U5|rgb_to_hsv:hsv_converter|lpm_divide:Div0
- 26. Parameter Settings for Inferred Entity Instance: color_debug:U5|rgb_to_hsv:hsv_converter|lpm_divide:Div2
- 27. Parameter Settings for Inferred Entity Instance: color_debug:U5|rgb_to_hsv:hsv_converter|lpm_divide:Div1
- 28. altsyncram Parameter Settings by Entity Instance
- 29. Port Connectivity Checks: "color_debug:U5|rgb_to_hsv:hsv_converter"
- 30. Port Connectivity Checks: "color_debug:U5"
- 31. Port Connectivity Checks: "image_buffer:U3"
- 32. Port Connectivity Checks: "ov7670_controller:U1|i2c_sender:Inst_i2c_sender"
- 33. Port Connectivity Checks: "ov7670_controller:U1"
- 34. Port Connectivity Checks: "video_PLL:U0"
- 35. Post-Synthesis Netlist Statistics for Top Partition
- 36. Elapsed Time Per Partition
- 37. Analysis & Synthesis Messages
- 38. Analysis & Synthesis Suppressed Messages
+ 10. State Machine - |top_level|camera_drive_flags:u_drive_flags|rgb_to_hsv:u_hsv|max_channel_d
+ 11. State Machine - |top_level|camera_drive_flags:u_drive_flags|rgb_to_hsv:u_hsv|max_channel
+ 12. State Machine - |top_level|color_debug:U5|rgb_to_hsv:hsv_converter|max_channel_d
+ 13. State Machine - |top_level|color_debug:U5|rgb_to_hsv:hsv_converter|max_channel
+ 14. State Machine - |top_level|ov7670_controller:U1|ov7670_registers:Inst_ov7670_registers|sreg
+ 15. Registers Removed During Synthesis
+ 16. Removed Registers Triggering Further Register Optimizations
+ 17. General Register Statistics
+ 18. Inverted Register Statistics
+ 19. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 20. Source assignments for Top-level Entity: |top_level
+ 21. Source assignments for image_buffer:U3|image_RAM:Inst_buffer_top|altsyncram:altsyncram_component|altsyncram_a2q1:auto_generated
+ 22. Source assignments for image_buffer:U3|image_RAM:Inst_buffer_bottom|altsyncram:altsyncram_component|altsyncram_a2q1:auto_generated
+ 23. Parameter Settings for User Entity Instance: video_PLL:U0|video_PLL_0002:video_pll_inst|altera_pll:altera_pll_i
+ 24. Parameter Settings for User Entity Instance: ov7670_controller:U1
+ 25. Parameter Settings for User Entity Instance: image_buffer:U3|image_RAM:Inst_buffer_top|altsyncram:altsyncram_component
+ 26. Parameter Settings for User Entity Instance: image_buffer:U3|image_RAM:Inst_buffer_bottom|altsyncram:altsyncram_component
+ 27. Parameter Settings for User Entity Instance: color_debug:U5|color_detector:detector
+ 28. Parameter Settings for User Entity Instance: camera_drive_flags:u_drive_flags
+ 29. Parameter Settings for User Entity Instance: camera_drive_flags:u_drive_flags|color_detector:u_det
+ 30. Parameter Settings for Inferred Entity Instance: color_debug:U5|rgb_to_hsv:hsv_converter|lpm_divide:Div0
+ 31. Parameter Settings for Inferred Entity Instance: color_debug:U5|rgb_to_hsv:hsv_converter|lpm_divide:Div2
+ 32. Parameter Settings for Inferred Entity Instance: color_debug:U5|rgb_to_hsv:hsv_converter|lpm_divide:Div1
+ 33. altsyncram Parameter Settings by Entity Instance
+ 34. Port Connectivity Checks: "color_debug:U5|rgb_to_hsv:hsv_converter"
+ 35. Port Connectivity Checks: "color_debug:U5"
+ 36. Port Connectivity Checks: "image_buffer:U3"
+ 37. Port Connectivity Checks: "ov7670_controller:U1|i2c_sender:Inst_i2c_sender"
+ 38. Port Connectivity Checks: "ov7670_controller:U1"
+ 39. Port Connectivity Checks: "video_PLL:U0"
+ 40. Post-Synthesis Netlist Statistics for Top Partition
+ 41. Elapsed Time Per Partition
+ 42. Analysis & Synthesis Messages
+ 43. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -70,14 +75,14 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Fri Oct 24 17:52:31 2025       ;
+; Analysis & Synthesis Status     ; Successful - Fri Oct 31 21:37:25 2025       ;
 ; Quartus Prime Version           ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name                   ; Camera                                      ;
 ; Top-level Entity Name           ; top_level                                   ;
 ; Family                          ; Cyclone V                                   ;
 ; Logic utilization (in ALMs)     ; N/A                                         ;
-; Total registers                 ; 355                                         ;
-; Total pins                      ; 78                                          ;
+; Total registers                 ; 405                                         ;
+; Total pins                      ; 88                                          ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 1,572,864                                   ;
 ; Total DSP Blocks                ; 0                                           ;
@@ -190,12 +195,13 @@ https://fpgasoftware.intel.com/eula.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.1%      ;
+;     Processor 2            ;   0.0%      ;
 ;     Processor 3            ;   0.0%      ;
 ;     Processor 4            ;   0.0%      ;
 ;     Processor 5            ;   0.0%      ;
 ;     Processor 6            ;   0.0%      ;
-;     Processors 7-12        ;   0.0%      ;
+;     Processor 7            ;   0.0%      ;
+;     Processors 8-12        ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -220,6 +226,7 @@ https://fpgasoftware.intel.com/eula.
 ; colour_debug.sv                                 ; yes             ; User SystemVerilog HDL File  ; C:/Users/bwood/Merchants-Major/camera_test1/colour_debug.sv                  ;           ;
 ; rbg_to_hsv.sv                                   ; yes             ; User SystemVerilog HDL File  ; C:/Users/bwood/Merchants-Major/camera_test1/rbg_to_hsv.sv                    ;           ;
 ; roi_overlay.sv                                  ; yes             ; User SystemVerilog HDL File  ; C:/Users/bwood/Merchants-Major/camera_test1/roi_overlay.sv                   ;           ;
+; camera_drive_flags.sv                           ; yes             ; User SystemVerilog HDL File  ; C:/Users/bwood/Merchants-Major/camera_test1/camera_drive_flags.sv            ;           ;
 ; altera_pll.v                                    ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altera_pll.v          ;           ;
 ; altsyncram.tdf                                  ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altsyncram.tdf        ;           ;
 ; stratix_ram_block.inc                           ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/stratix_ram_block.inc ;           ;
@@ -248,18 +255,18 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+-----------------------------------------------------------------------------------+
 ; Resource                                    ; Usage                                                                             ;
 +---------------------------------------------+-----------------------------------------------------------------------------------+
-; Estimate of Logic utilization (ALMs needed) ; 757                                                                               ;
+; Estimate of Logic utilization (ALMs needed) ; 773                                                                               ;
 ;                                             ;                                                                                   ;
-; Combinational ALUT usage for logic          ; 1364                                                                              ;
+; Combinational ALUT usage for logic          ; 1382                                                                              ;
 ;     -- 7 input functions                    ; 2                                                                                 ;
-;     -- 6 input functions                    ; 133                                                                               ;
-;     -- 5 input functions                    ; 243                                                                               ;
-;     -- 4 input functions                    ; 346                                                                               ;
-;     -- <=3 input functions                  ; 640                                                                               ;
+;     -- 6 input functions                    ; 141                                                                               ;
+;     -- 5 input functions                    ; 250                                                                               ;
+;     -- 4 input functions                    ; 340                                                                               ;
+;     -- <=3 input functions                  ; 649                                                                               ;
 ;                                             ;                                                                                   ;
-; Dedicated logic registers                   ; 355                                                                               ;
+; Dedicated logic registers                   ; 405                                                                               ;
 ;                                             ;                                                                                   ;
-; I/O pins                                    ; 78                                                                                ;
+; I/O pins                                    ; 88                                                                                ;
 ; Total MLAB memory bits                      ; 0                                                                                 ;
 ; Total block memory bits                     ; 1572864                                                                           ;
 ;                                             ;                                                                                   ;
@@ -269,9 +276,9 @@ https://fpgasoftware.intel.com/eula.
 ;     -- PLLs                                 ; 2                                                                                 ;
 ;                                             ;                                                                                   ;
 ; Maximum fan-out node                        ; video_PLL:U0|video_PLL_0002:video_pll_inst|altera_pll:altera_pll_i|outclk_wire[1] ;
-; Maximum fan-out                             ; 515                                                                               ;
-; Total fan-out                               ; 12147                                                                             ;
-; Average fan-out                             ; 5.87                                                                              ;
+; Maximum fan-out                             ; 565                                                                               ;
+; Total fan-out                               ; 12344                                                                             ;
+; Average fan-out                             ; 5.72                                                                              ;
 +---------------------------------------------+-----------------------------------------------------------------------------------+
 
 
@@ -280,7 +287,9 @@ https://fpgasoftware.intel.com/eula.
 +------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------------------------------------------------------------------------------------------------------------+----------------------+--------------+
 ; Compilation Hierarchy Node                     ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                                ; Entity Name          ; Library Name ;
 +------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------------------------------------------------------------------------------------------------------------+----------------------+--------------+
-; |top_level                                     ; 1364 (12)           ; 355 (0)                   ; 1572864           ; 0          ; 78   ; 0            ; |top_level                                                                                                                                         ; top_level            ; work         ;
+; |top_level                                     ; 1382 (12)           ; 405 (0)                   ; 1572864           ; 0          ; 88   ; 0            ; |top_level                                                                                                                                         ; top_level            ; work         ;
+;    |camera_drive_flags:u_drive_flags|          ; 18 (8)              ; 50 (41)                   ; 0                 ; 0          ; 0    ; 0            ; |top_level|camera_drive_flags:u_drive_flags                                                                                                        ; camera_drive_flags   ; work         ;
+;       |rgb_to_hsv:u_hsv|                       ; 10 (10)             ; 9 (9)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|camera_drive_flags:u_drive_flags|rgb_to_hsv:u_hsv                                                                                       ; rgb_to_hsv           ; work         ;
 ;    |color_debug:U5|                            ; 898 (30)            ; 74 (31)                   ; 0                 ; 0          ; 0    ; 0            ; |top_level|color_debug:U5                                                                                                                          ; color_debug          ; work         ;
 ;       |rgb_to_hsv:hsv_converter|               ; 868 (130)           ; 43 (43)                   ; 0                 ; 0          ; 0    ; 0            ; |top_level|color_debug:U5|rgb_to_hsv:hsv_converter                                                                                                 ; rgb_to_hsv           ; work         ;
 ;          |lpm_divide:Div0|                     ; 246 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|color_debug:U5|rgb_to_hsv:hsv_converter|lpm_divide:Div0                                                                                 ; lpm_divide           ; work         ;
@@ -342,6 +351,30 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Altera ; RAM: 2-PORT  ; 20.1    ; N/A          ; N/A          ; |top_level|image_buffer:U3|image_RAM:Inst_buffer_bottom ; image_RAM.v     ;
 ; Altera ; RAM: 2-PORT  ; 20.1    ; N/A          ; N/A          ; |top_level|image_buffer:U3|image_RAM:Inst_buffer_top    ; image_RAM.v     ;
 +--------+--------------+---------+--------------+--------------+---------------------------------------------------------+-----------------+
+
+
+Encoding Type:  One-Hot
++--------------------------------------------------------------------------------------------+
+; State Machine - |top_level|camera_drive_flags:u_drive_flags|rgb_to_hsv:u_hsv|max_channel_d ;
++------------------+------------------+------------------+-----------------------------------+
+; Name             ; max_channel_d.00 ; max_channel_d.10 ; max_channel_d.01                  ;
++------------------+------------------+------------------+-----------------------------------+
+; max_channel_d.00 ; 0                ; 0                ; 0                                 ;
+; max_channel_d.01 ; 1                ; 0                ; 1                                 ;
+; max_channel_d.10 ; 1                ; 1                ; 0                                 ;
++------------------+------------------+------------------+-----------------------------------+
+
+
+Encoding Type:  One-Hot
++------------------------------------------------------------------------------------------+
+; State Machine - |top_level|camera_drive_flags:u_drive_flags|rgb_to_hsv:u_hsv|max_channel ;
++----------------+----------------+----------------+---------------------------------------+
+; Name           ; max_channel.00 ; max_channel.10 ; max_channel.01                        ;
++----------------+----------------+----------------+---------------------------------------+
+; max_channel.00 ; 0              ; 0              ; 0                                     ;
+; max_channel.01 ; 1              ; 0              ; 1                                     ;
+; max_channel.10 ; 1              ; 1              ; 0                                     ;
++----------------+----------------+----------------+---------------------------------------+
 
 
 Encoding Type:  One-Hot
@@ -442,7 +475,34 @@ Encoding Type:  One-Hot
 ; Register name                                                                                                                 ; Reason for Removal                                                                                                                           ;
 +-------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------+
 ; display:u_display|current_state[2..31]                                                                                        ; Stuck at GND due to stuck port data_in                                                                                                       ;
+; camera_drive_flags:u_drive_flags|rgb_to_hsv:u_hsv|s_out[0..7]                                                                 ; Stuck at GND due to stuck port data_in                                                                                                       ;
 ; vga_driver:U4|state[2..31]                                                                                                    ; Stuck at GND due to stuck port data_in                                                                                                       ;
+; camera_drive_flags:u_drive_flags|rgb_to_hsv:u_hsv|valid_d1                                                                    ; Merged with camera_drive_flags:u_drive_flags|vld_d1                                                                                          ;
+; camera_drive_flags:u_drive_flags|rgb_to_hsv:u_hsv|min_val[4]                                                                  ; Merged with camera_drive_flags:u_drive_flags|rgb_to_hsv:u_hsv|min_val[0]                                                                     ;
+; camera_drive_flags:u_drive_flags|rgb_to_hsv:u_hsv|max_val[3]                                                                  ; Merged with camera_drive_flags:u_drive_flags|rgb_to_hsv:u_hsv|max_val[7]                                                                     ;
+; camera_drive_flags:u_drive_flags|rgb_to_hsv:u_hsv|max_val[2]                                                                  ; Merged with camera_drive_flags:u_drive_flags|rgb_to_hsv:u_hsv|max_val[6]                                                                     ;
+; camera_drive_flags:u_drive_flags|rgb_to_hsv:u_hsv|max_val[1]                                                                  ; Merged with camera_drive_flags:u_drive_flags|rgb_to_hsv:u_hsv|max_val[5]                                                                     ;
+; camera_drive_flags:u_drive_flags|rgb_to_hsv:u_hsv|max_val[0]                                                                  ; Merged with camera_drive_flags:u_drive_flags|rgb_to_hsv:u_hsv|max_val[4]                                                                     ;
+; camera_drive_flags:u_drive_flags|rgb_to_hsv:u_hsv|min_val[3]                                                                  ; Merged with camera_drive_flags:u_drive_flags|rgb_to_hsv:u_hsv|min_val[7]                                                                     ;
+; camera_drive_flags:u_drive_flags|rgb_to_hsv:u_hsv|min_val[2]                                                                  ; Merged with camera_drive_flags:u_drive_flags|rgb_to_hsv:u_hsv|min_val[6]                                                                     ;
+; camera_drive_flags:u_drive_flags|rgb_to_hsv:u_hsv|min_val[1]                                                                  ; Merged with camera_drive_flags:u_drive_flags|rgb_to_hsv:u_hsv|min_val[5]                                                                     ;
+; camera_drive_flags:u_drive_flags|rgb_to_hsv:u_hsv|r8_d[3]                                                                     ; Merged with camera_drive_flags:u_drive_flags|rgb_to_hsv:u_hsv|r8_d[7]                                                                        ;
+; camera_drive_flags:u_drive_flags|rgb_to_hsv:u_hsv|r8_d[2]                                                                     ; Merged with camera_drive_flags:u_drive_flags|rgb_to_hsv:u_hsv|r8_d[6]                                                                        ;
+; camera_drive_flags:u_drive_flags|rgb_to_hsv:u_hsv|r8_d[1]                                                                     ; Merged with camera_drive_flags:u_drive_flags|rgb_to_hsv:u_hsv|r8_d[5]                                                                        ;
+; camera_drive_flags:u_drive_flags|rgb_to_hsv:u_hsv|r8_d[0]                                                                     ; Merged with camera_drive_flags:u_drive_flags|rgb_to_hsv:u_hsv|r8_d[4]                                                                        ;
+; camera_drive_flags:u_drive_flags|rgb_to_hsv:u_hsv|g8_d[3]                                                                     ; Merged with camera_drive_flags:u_drive_flags|rgb_to_hsv:u_hsv|g8_d[7]                                                                        ;
+; camera_drive_flags:u_drive_flags|rgb_to_hsv:u_hsv|g8_d[2]                                                                     ; Merged with camera_drive_flags:u_drive_flags|rgb_to_hsv:u_hsv|g8_d[6]                                                                        ;
+; camera_drive_flags:u_drive_flags|rgb_to_hsv:u_hsv|g8_d[1]                                                                     ; Merged with camera_drive_flags:u_drive_flags|rgb_to_hsv:u_hsv|g8_d[5]                                                                        ;
+; camera_drive_flags:u_drive_flags|rgb_to_hsv:u_hsv|g8_d[0]                                                                     ; Merged with camera_drive_flags:u_drive_flags|rgb_to_hsv:u_hsv|g8_d[4]                                                                        ;
+; camera_drive_flags:u_drive_flags|rgb_to_hsv:u_hsv|b8_d[3]                                                                     ; Merged with camera_drive_flags:u_drive_flags|rgb_to_hsv:u_hsv|b8_d[7]                                                                        ;
+; camera_drive_flags:u_drive_flags|rgb_to_hsv:u_hsv|b8_d[2]                                                                     ; Merged with camera_drive_flags:u_drive_flags|rgb_to_hsv:u_hsv|b8_d[6]                                                                        ;
+; camera_drive_flags:u_drive_flags|rgb_to_hsv:u_hsv|b8_d[1]                                                                     ; Merged with camera_drive_flags:u_drive_flags|rgb_to_hsv:u_hsv|b8_d[5]                                                                        ;
+; camera_drive_flags:u_drive_flags|rgb_to_hsv:u_hsv|b8_d[0]                                                                     ; Merged with camera_drive_flags:u_drive_flags|rgb_to_hsv:u_hsv|b8_d[4]                                                                        ;
+; camera_drive_flags:u_drive_flags|rgb_to_hsv:u_hsv|v_out[3]                                                                    ; Merged with camera_drive_flags:u_drive_flags|rgb_to_hsv:u_hsv|v_out[7]                                                                       ;
+; camera_drive_flags:u_drive_flags|rgb_to_hsv:u_hsv|v_out[2]                                                                    ; Merged with camera_drive_flags:u_drive_flags|rgb_to_hsv:u_hsv|v_out[6]                                                                       ;
+; camera_drive_flags:u_drive_flags|rgb_to_hsv:u_hsv|v_out[1]                                                                    ; Merged with camera_drive_flags:u_drive_flags|rgb_to_hsv:u_hsv|v_out[5]                                                                       ;
+; camera_drive_flags:u_drive_flags|rgb_to_hsv:u_hsv|v_out[0]                                                                    ; Merged with camera_drive_flags:u_drive_flags|rgb_to_hsv:u_hsv|v_out[4]                                                                       ;
+; camera_drive_flags:u_drive_flags|vld_d2                                                                                       ; Merged with camera_drive_flags:u_drive_flags|rgb_to_hsv:u_hsv|valid_d2                                                                       ;
 ; color_debug:U5|rgb_to_hsv:hsv_converter|min_val[4]                                                                            ; Merged with color_debug:U5|rgb_to_hsv:hsv_converter|min_val[0]                                                                               ;
 ; color_debug:U5|rgb_to_hsv:hsv_converter|max_val[3]                                                                            ; Merged with color_debug:U5|rgb_to_hsv:hsv_converter|max_val[7]                                                                               ;
 ; color_debug:U5|rgb_to_hsv:hsv_converter|max_val[2]                                                                            ; Merged with color_debug:U5|rgb_to_hsv:hsv_converter|max_val[6]                                                                               ;
@@ -488,7 +548,36 @@ Encoding Type:  One-Hot
 ; image_buffer:U3|y_vga[2]                                                                                                      ; Merged with color_debug:U5|y_count[2]                                                                                                        ;
 ; image_buffer:U3|y_vga[1]                                                                                                      ; Merged with color_debug:U5|y_count[1]                                                                                                        ;
 ; image_buffer:U3|y_vga[0]                                                                                                      ; Merged with color_debug:U5|y_count[0]                                                                                                        ;
+; camera_drive_flags:u_drive_flags|rgb_to_hsv:u_hsv|h_out[0..8]                                                                 ; Lost fanout                                                                                                                                  ;
+; camera_drive_flags:u_drive_flags|rgb_to_hsv:u_hsv|b8_d[4..7]                                                                  ; Lost fanout                                                                                                                                  ;
+; camera_drive_flags:u_drive_flags|rgb_to_hsv:u_hsv|r8_d[4..7]                                                                  ; Lost fanout                                                                                                                                  ;
+; camera_drive_flags:u_drive_flags|rgb_to_hsv:u_hsv|g8_d[4..7]                                                                  ; Lost fanout                                                                                                                                  ;
+; camera_drive_flags:u_drive_flags|rgb_to_hsv:u_hsv|delta[0..7]                                                                 ; Lost fanout                                                                                                                                  ;
+; camera_drive_flags:u_drive_flags|rgb_to_hsv:u_hsv|min_val[0,5..7]                                                             ; Lost fanout                                                                                                                                  ;
+; camera_drive_flags:u_drive_flags|red_cnt[19]                                                                                  ; Merged with camera_drive_flags:u_drive_flags|green_cnt[0]                                                                                    ;
+; camera_drive_flags:u_drive_flags|green_cnt[4]                                                                                 ; Merged with camera_drive_flags:u_drive_flags|green_cnt[0]                                                                                    ;
+; camera_drive_flags:u_drive_flags|red_cnt[15]                                                                                  ; Merged with camera_drive_flags:u_drive_flags|green_cnt[0]                                                                                    ;
+; camera_drive_flags:u_drive_flags|green_cnt[16]                                                                                ; Merged with camera_drive_flags:u_drive_flags|green_cnt[0]                                                                                    ;
+; camera_drive_flags:u_drive_flags|red_cnt[0,13,16]                                                                             ; Merged with camera_drive_flags:u_drive_flags|green_cnt[0]                                                                                    ;
+; camera_drive_flags:u_drive_flags|green_cnt[10,14,18]                                                                          ; Merged with camera_drive_flags:u_drive_flags|green_cnt[0]                                                                                    ;
+; camera_drive_flags:u_drive_flags|red_cnt[2,4,12]                                                                              ; Merged with camera_drive_flags:u_drive_flags|green_cnt[0]                                                                                    ;
+; camera_drive_flags:u_drive_flags|green_cnt[2,3,5,11,13,15,17,19]                                                              ; Merged with camera_drive_flags:u_drive_flags|green_cnt[0]                                                                                    ;
+; camera_drive_flags:u_drive_flags|red_cnt[1,3,5..7,9..11,14,18]                                                                ; Merged with camera_drive_flags:u_drive_flags|green_cnt[0]                                                                                    ;
+; camera_drive_flags:u_drive_flags|green_cnt[1,6,7]                                                                             ; Merged with camera_drive_flags:u_drive_flags|green_cnt[0]                                                                                    ;
+; camera_drive_flags:u_drive_flags|red_cnt[17]                                                                                  ; Merged with camera_drive_flags:u_drive_flags|green_cnt[0]                                                                                    ;
+; camera_drive_flags:u_drive_flags|green_cnt[8,12]                                                                              ; Merged with camera_drive_flags:u_drive_flags|green_cnt[0]                                                                                    ;
+; camera_drive_flags:u_drive_flags|red_cnt[8]                                                                                   ; Merged with camera_drive_flags:u_drive_flags|green_cnt[9]                                                                                    ;
+; camera_drive_flags:u_drive_flags|green_cnt[9]                                                                                 ; Merged with camera_drive_flags:u_drive_flags|green_cnt[0]                                                                                    ;
+; camera_drive_flags:u_drive_flags|turn_left                                                                                    ; Stuck at GND due to stuck port data_in                                                                                                       ;
+; camera_drive_flags:u_drive_flags|green_cnt[0]                                                                                 ; Stuck at GND due to stuck port data_in                                                                                                       ;
 ; ov7670_controller:U1|i2c_sender:Inst_i2c_sender|data_sr[0]                                                                    ; Stuck at VCC due to stuck port data_in                                                                                                       ;
+; camera_drive_flags:u_drive_flags|turn_right                                                                                   ; Stuck at GND due to stuck port data_in                                                                                                       ;
+; camera_drive_flags:u_drive_flags|rgb_to_hsv:u_hsv|max_channel_d.00                                                            ; Lost fanout                                                                                                                                  ;
+; camera_drive_flags:u_drive_flags|rgb_to_hsv:u_hsv|max_channel.00                                                              ; Lost fanout                                                                                                                                  ;
+; camera_drive_flags:u_drive_flags|rgb_to_hsv:u_hsv|max_channel_d.01                                                            ; Lost fanout                                                                                                                                  ;
+; camera_drive_flags:u_drive_flags|rgb_to_hsv:u_hsv|max_channel.01                                                              ; Lost fanout                                                                                                                                  ;
+; camera_drive_flags:u_drive_flags|rgb_to_hsv:u_hsv|max_channel_d.10                                                            ; Lost fanout                                                                                                                                  ;
+; camera_drive_flags:u_drive_flags|rgb_to_hsv:u_hsv|max_channel.10                                                              ; Lost fanout                                                                                                                                  ;
 ; ov7670_controller:U1|ov7670_registers:Inst_ov7670_registers|sreg~2                                                            ; Lost fanout                                                                                                                                  ;
 ; ov7670_controller:U1|ov7670_registers:Inst_ov7670_registers|sreg~3                                                            ; Lost fanout                                                                                                                                  ;
 ; ov7670_controller:U1|ov7670_registers:Inst_ov7670_registers|sreg~4                                                            ; Lost fanout                                                                                                                                  ;
@@ -505,8 +594,31 @@ Encoding Type:  One-Hot
 ; ov7670_controller:U1|ov7670_registers:Inst_ov7670_registers|sreg~15                                                           ; Lost fanout                                                                                                                                  ;
 ; ov7670_controller:U1|ov7670_registers:Inst_ov7670_registers|sreg~16                                                           ; Lost fanout                                                                                                                                  ;
 ; ov7670_controller:U1|ov7670_registers:Inst_ov7670_registers|sreg~17                                                           ; Lost fanout                                                                                                                                  ;
-; Total Number of Removed Registers = 122                                                                                       ;                                                                                                                                              ;
+; Total Number of Removed Registers = 237                                                                                       ;                                                                                                                                              ;
 +-------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                                       ;
++--------------------------------------------------------------------+---------------------------+------------------------------------------------------------------+
+; Register name                                                      ; Reason for Removal        ; Registers Removed due to This Register                           ;
++--------------------------------------------------------------------+---------------------------+------------------------------------------------------------------+
+; camera_drive_flags:u_drive_flags|rgb_to_hsv:u_hsv|h_out[8]         ; Lost Fanouts              ; camera_drive_flags:u_drive_flags|rgb_to_hsv:u_hsv|g8_d[7],       ;
+;                                                                    ;                           ; camera_drive_flags:u_drive_flags|rgb_to_hsv:u_hsv|delta[7],      ;
+;                                                                    ;                           ; camera_drive_flags:u_drive_flags|rgb_to_hsv:u_hsv|delta[6],      ;
+;                                                                    ;                           ; camera_drive_flags:u_drive_flags|rgb_to_hsv:u_hsv|delta[5],      ;
+;                                                                    ;                           ; camera_drive_flags:u_drive_flags|rgb_to_hsv:u_hsv|delta[4],      ;
+;                                                                    ;                           ; camera_drive_flags:u_drive_flags|rgb_to_hsv:u_hsv|delta[3],      ;
+;                                                                    ;                           ; camera_drive_flags:u_drive_flags|rgb_to_hsv:u_hsv|delta[2],      ;
+;                                                                    ;                           ; camera_drive_flags:u_drive_flags|rgb_to_hsv:u_hsv|min_val[0]     ;
+; camera_drive_flags:u_drive_flags|rgb_to_hsv:u_hsv|s_out[0]         ; Stuck at GND              ; camera_drive_flags:u_drive_flags|green_cnt[0],                   ;
+;                                                                    ; due to stuck port data_in ; camera_drive_flags:u_drive_flags|turn_right                      ;
+; camera_drive_flags:u_drive_flags|rgb_to_hsv:u_hsv|h_out[2]         ; Lost Fanouts              ; camera_drive_flags:u_drive_flags|rgb_to_hsv:u_hsv|r8_d[7],       ;
+;                                                                    ;                           ; camera_drive_flags:u_drive_flags|rgb_to_hsv:u_hsv|g8_d[6]        ;
+; camera_drive_flags:u_drive_flags|rgb_to_hsv:u_hsv|max_channel_d.00 ; Lost Fanouts              ; camera_drive_flags:u_drive_flags|rgb_to_hsv:u_hsv|max_channel.00 ;
+; camera_drive_flags:u_drive_flags|rgb_to_hsv:u_hsv|max_channel_d.01 ; Lost Fanouts              ; camera_drive_flags:u_drive_flags|rgb_to_hsv:u_hsv|max_channel.01 ;
+; camera_drive_flags:u_drive_flags|rgb_to_hsv:u_hsv|max_channel_d.10 ; Lost Fanouts              ; camera_drive_flags:u_drive_flags|rgb_to_hsv:u_hsv|max_channel.10 ;
++--------------------------------------------------------------------+---------------------------+------------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -514,7 +626,7 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 355   ;
+; Total registers                              ; 405   ;
 ; Number of registers using Synchronous Clear  ; 78    ;
 ; Number of registers using Synchronous Load   ; 25    ;
 ; Number of registers using Asynchronous Clear ; 0     ;
@@ -534,29 +646,30 @@ Encoding Type:  One-Hot
 +------------------------------------------------------------+---------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                       ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                             ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------+
-; 3:1                ; 44 bits   ; 88 LEs        ; 44 LEs               ; 44 LEs                 ; Yes        ; |top_level|ov7670_controller:U1|i2c_sender:Inst_i2c_sender|busy_sr[31] ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |top_level|ov7670_controller:U1|i2c_sender:Inst_i2c_sender|data_sr[15] ;
-; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |top_level|ov7670_controller:U1|i2c_sender:Inst_i2c_sender|divider[6]  ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |top_level|vga_driver:U4|line_count[4]                                 ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |top_level|display:u_display|temp_value[9]                             ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |top_level|display:u_display|temp_value[8]                             ;
-; 3:1                ; 17 bits   ; 34 LEs        ; 0 LEs                ; 34 LEs                 ; Yes        ; |top_level|ov7670_pixel_capture:DUT1|address[12]                       ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |top_level|color_debug:U5|rgb_to_hsv:hsv_converter|max_val[4]          ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |top_level|color_debug:U5|rgb_to_hsv:hsv_converter|min_val[5]          ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |top_level|display:u_display|bcd0[3]                                   ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |top_level|display:u_display|bcd1[0]                                   ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |top_level|display:u_display|bcd2[3]                                   ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |top_level|display:u_display|bcd3[3]                                   ;
-; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |top_level|color_debug:U5|rgb_to_hsv:hsv_converter|h_out[2]            ;
-; 5:1                ; 6 bits    ; 18 LEs        ; 18 LEs               ; 0 LEs                  ; Yes        ; |top_level|color_debug:U5|rgb_to_hsv:hsv_converter|h_out[3]            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; No         ; |top_level|vga_driver:U4|r[0]                                          ;
-; 16:1               ; 12 bits   ; 120 LEs       ; 120 LEs              ; 0 LEs                  ; No         ; |top_level|image_buffer:U3|data_out[11]                                ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                        ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                              ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------+
+; 3:1                ; 44 bits   ; 88 LEs        ; 44 LEs               ; 44 LEs                 ; Yes        ; |top_level|ov7670_controller:U1|i2c_sender:Inst_i2c_sender|data_sr[30]  ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |top_level|ov7670_controller:U1|i2c_sender:Inst_i2c_sender|data_sr[19]  ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |top_level|ov7670_controller:U1|i2c_sender:Inst_i2c_sender|divider[6]   ;
+; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |top_level|vga_driver:U4|line_count[2]                                  ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |top_level|display:u_display|temp_value[10]                             ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |top_level|display:u_display|temp_value[8]                              ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 0 LEs                ; 34 LEs                 ; Yes        ; |top_level|ov7670_pixel_capture:DUT1|address[1]                         ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |top_level|camera_drive_flags:u_drive_flags|rgb_to_hsv:u_hsv|max_val[6] ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |top_level|color_debug:U5|rgb_to_hsv:hsv_converter|max_val[7]           ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |top_level|color_debug:U5|rgb_to_hsv:hsv_converter|min_val[0]           ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |top_level|display:u_display|bcd0[3]                                    ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |top_level|display:u_display|bcd1[1]                                    ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |top_level|display:u_display|bcd2[3]                                    ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |top_level|display:u_display|bcd3[0]                                    ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |top_level|color_debug:U5|rgb_to_hsv:hsv_converter|h_out[0]             ;
+; 5:1                ; 6 bits    ; 18 LEs        ; 18 LEs               ; 0 LEs                  ; Yes        ; |top_level|color_debug:U5|rgb_to_hsv:hsv_converter|h_out[6]             ;
+; 3:1                ; 12 bits   ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; No         ; |top_level|vga_driver:U4|g[1]                                           ;
+; 16:1               ; 12 bits   ; 120 LEs       ; 120 LEs              ; 0 LEs                  ; No         ; |top_level|image_buffer:U3|data_out[11]                                 ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------+
 
 
 +--------------------------------------------------------------+
@@ -999,11 +1112,44 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; H_RED_HIGH2    ; 359   ; Signed Integer                                             ;
 ; H_GREEN_LOW    ; 80    ; Signed Integer                                             ;
 ; H_GREEN_HIGH   ; 140   ; Signed Integer                                             ;
-; H_BLUE_LOW     ; 200   ; Signed Integer                                             ;
-; H_BLUE_HIGH    ; 260   ; Signed Integer                                             ;
 ; S_MIN          ; 50    ; Signed Integer                                             ;
 ; V_MIN          ; 40    ; Signed Integer                                             ;
+; S_BLACK_MAX    ; 60    ; Signed Integer                                             ;
+; V_BLACK_MAX    ; 50    ; Signed Integer                                             ;
 +----------------+-------+------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: camera_drive_flags:u_drive_flags ;
++--------------------+-------+--------------------------------------------------+
+; Parameter Name     ; Value ; Type                                             ;
++--------------------+-------+--------------------------------------------------+
+; IMG_W              ; 640   ; Signed Integer                                   ;
+; IMG_H              ; 480   ; Signed Integer                                   ;
+; MID_X              ; 320   ; Signed Integer                                   ;
+; MID_Y              ; 240   ; Signed Integer                                   ;
+; MIN_COLORED_PIXELS ; 500   ; Signed Integer                                   ;
++--------------------+-------+--------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: camera_drive_flags:u_drive_flags|color_detector:u_det ;
++----------------+-------+---------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                      ;
++----------------+-------+---------------------------------------------------------------------------+
+; H_RED_LOW1     ; 0     ; Signed Integer                                                            ;
+; H_RED_HIGH1    ; 10    ; Signed Integer                                                            ;
+; H_RED_LOW2     ; 350   ; Signed Integer                                                            ;
+; H_RED_HIGH2    ; 359   ; Signed Integer                                                            ;
+; H_GREEN_LOW    ; 80    ; Signed Integer                                                            ;
+; H_GREEN_HIGH   ; 140   ; Signed Integer                                                            ;
+; S_MIN          ; 50    ; Signed Integer                                                            ;
+; V_MIN          ; 40    ; Signed Integer                                                            ;
+; S_BLACK_MAX    ; 60    ; Signed Integer                                                            ;
+; V_BLACK_MAX    ; 50    ; Signed Integer                                                            ;
++----------------+-------+---------------------------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
@@ -1132,7 +1278,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; val_decimal       ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
 ; red_detected      ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
 ; green_detected    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; blue_detected     ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; black_detected    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
 +-------------------+--------+----------+-------------------------------------------------------------------------------------+
 
 
@@ -1184,15 +1330,15 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 355                         ;
+; arriav_ff             ; 405                         ;
 ;     ENA               ; 108                         ;
 ;     ENA SCLR          ; 48                          ;
 ;     ENA SLD           ; 24                          ;
 ;     SCLR              ; 30                          ;
 ;     SLD               ; 1                           ;
-;     plain             ; 144                         ;
+;     plain             ; 194                         ;
 ; arriav_io_obuf        ; 1                           ;
-; arriav_lcell_comb     ; 1370                        ;
+; arriav_lcell_comb     ; 1388                        ;
 ;     arith             ; 463                         ;
 ;         0 data inputs ; 72                          ;
 ;         1 data inputs ; 90                          ;
@@ -1202,26 +1348,26 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;         5 data inputs ; 129                         ;
 ;     extend            ; 2                           ;
 ;         7 data inputs ; 2                           ;
-;     normal            ; 790                         ;
+;     normal            ; 808                         ;
 ;         0 data inputs ; 2                           ;
 ;         1 data inputs ; 6                           ;
 ;         2 data inputs ; 211                         ;
-;         3 data inputs ; 113                         ;
-;         4 data inputs ; 211                         ;
-;         5 data inputs ; 114                         ;
-;         6 data inputs ; 133                         ;
+;         3 data inputs ; 122                         ;
+;         4 data inputs ; 205                         ;
+;         5 data inputs ; 121                         ;
+;         6 data inputs ; 141                         ;
 ;     shared            ; 115                         ;
 ;         0 data inputs ; 19                          ;
 ;         1 data inputs ; 14                          ;
 ;         2 data inputs ; 72                          ;
 ;         3 data inputs ; 1                           ;
 ;         4 data inputs ; 9                           ;
-; boundary_port         ; 78                          ;
+; boundary_port         ; 88                          ;
 ; generic_pll           ; 2                           ;
 ; stratixv_ram_block    ; 192                         ;
 ;                       ;                             ;
 ; Max LUT depth         ; 34.30                       ;
-; Average LUT depth     ; 17.36                       ;
+; Average LUT depth     ; 17.13                       ;
 +-----------------------+-----------------------------+
 
 
@@ -1230,7 +1376,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:05     ;
+; Top            ; 00:00:01     ;
 +----------------+--------------+
 
 
@@ -1240,7 +1386,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
-    Info: Processing started: Fri Oct 24 17:52:05 2025
+    Info: Processing started: Fri Oct 31 21:37:17 2025
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Camera -c Camera
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 12 of the 12 processors detected
@@ -1282,8 +1428,10 @@ Info (12021): Found 1 design units, including 1 entities, in source file rbg_to_
     Info (12023): Found entity 1: rgb_to_hsv File: C:/Users/bwood/Merchants-Major/camera_test1/rbg_to_hsv.sv Line: 4
 Info (12021): Found 1 design units, including 1 entities, in source file roi_overlay.sv
     Info (12023): Found entity 1: roi_overlay File: C:/Users/bwood/Merchants-Major/camera_test1/roi_overlay.sv Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file camera_drive_flags.sv
+    Info (12023): Found entity 1: camera_drive_flags File: C:/Users/bwood/Merchants-Major/camera_test1/camera_drive_flags.sv Line: 5
 Info (12127): Elaborating entity "top_level" for the top level hierarchy
-Info (12128): Elaborating entity "video_PLL" for hierarchy "video_PLL:U0" File: C:/Users/bwood/Quartus_Prime/Camera_testing/top_level.sv Line: 46
+Info (12128): Elaborating entity "video_PLL" for hierarchy "video_PLL:U0" File: C:/Users/bwood/Quartus_Prime/Camera_testing/top_level.sv Line: 47
 Info (12128): Elaborating entity "video_PLL_0002" for hierarchy "video_PLL:U0|video_PLL_0002:video_pll_inst" File: C:/Users/bwood/Merchants-Major/camera_test1/video_PLL.v Line: 22
 Info (12128): Elaborating entity "altera_pll" for hierarchy "video_PLL:U0|video_PLL_0002:video_pll_inst|altera_pll:altera_pll_i" File: C:/Users/bwood/Merchants-Major/camera_test1/video_PLL/video_PLL_0002.v Line: 88
 Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "wire_to_nowhere_64" into its bus
@@ -1349,15 +1497,15 @@ Info (12133): Instantiated megafunction "video_PLL:U0|video_PLL_0002:video_pll_i
     Info (12134): Parameter "duty_cycle17" = "50"
     Info (12134): Parameter "pll_type" = "General"
     Info (12134): Parameter "pll_subtype" = "General"
-Info (12128): Elaborating entity "ov7670_controller" for hierarchy "ov7670_controller:U1" File: C:/Users/bwood/Quartus_Prime/Camera_testing/top_level.sv Line: 61
+Info (12128): Elaborating entity "ov7670_controller" for hierarchy "ov7670_controller:U1" File: C:/Users/bwood/Quartus_Prime/Camera_testing/top_level.sv Line: 62
 Info (12128): Elaborating entity "i2c_sender" for hierarchy "ov7670_controller:U1|i2c_sender:Inst_i2c_sender" File: C:/Users/bwood/Merchants-Major/camera_test1/ov7670_controller.v Line: 58
 Warning (10230): Verilog HDL assignment warning at i2c_sender.v(65): truncated value with size 32 to match size of target (8) File: C:/Users/bwood/Merchants-Major/camera_test1/i2c_sender.v Line: 65
 Warning (10230): Verilog HDL assignment warning at i2c_sender.v(191): truncated value with size 32 to match size of target (8) File: C:/Users/bwood/Merchants-Major/camera_test1/i2c_sender.v Line: 191
 Info (12128): Elaborating entity "ov7670_registers" for hierarchy "ov7670_controller:U1|ov7670_registers:Inst_ov7670_registers" File: C:/Users/bwood/Merchants-Major/camera_test1/ov7670_controller.v Line: 70
 Warning (10230): Verilog HDL assignment warning at ov7670_registers.v(68): truncated value with size 32 to match size of target (8) File: C:/Users/bwood/Merchants-Major/camera_test1/ov7670_registers.v Line: 68
-Info (12128): Elaborating entity "ov7670_pixel_capture" for hierarchy "ov7670_pixel_capture:DUT1" File: C:/Users/bwood/Quartus_Prime/Camera_testing/top_level.sv Line: 71
+Info (12128): Elaborating entity "ov7670_pixel_capture" for hierarchy "ov7670_pixel_capture:DUT1" File: C:/Users/bwood/Quartus_Prime/Camera_testing/top_level.sv Line: 72
 Warning (10230): Verilog HDL assignment warning at ov7670_pixel_capture.sv(75): truncated value with size 32 to match size of target (17) File: C:/Users/bwood/Merchants-Major/camera_test1/ov7670_pixel_capture.sv Line: 75
-Info (12128): Elaborating entity "image_buffer" for hierarchy "image_buffer:U3" File: C:/Users/bwood/Quartus_Prime/Camera_testing/top_level.sv Line: 89
+Info (12128): Elaborating entity "image_buffer" for hierarchy "image_buffer:U3" File: C:/Users/bwood/Quartus_Prime/Camera_testing/top_level.sv Line: 90
 Warning (10230): Verilog HDL assignment warning at image_buffer.sv(30): truncated value with size 32 to match size of target (10) File: C:/Users/bwood/Merchants-Major/camera_test1/image_buffer.sv Line: 30
 Warning (10230): Verilog HDL assignment warning at image_buffer.sv(35): truncated value with size 32 to match size of target (9) File: C:/Users/bwood/Merchants-Major/camera_test1/image_buffer.sv Line: 35
 Warning (10034): Output port "image_end" at image_buffer.sv(11) has no driver File: C:/Users/bwood/Merchants-Major/camera_test1/image_buffer.sv Line: 11
@@ -1395,12 +1543,12 @@ Info (12128): Elaborating entity "decode_61a" for hierarchy "image_buffer:U3|ima
 Info (12021): Found 1 design units, including 1 entities, in source file db/mux_8hb.tdf
     Info (12023): Found entity 1: mux_8hb File: C:/Users/bwood/Merchants-Major/camera_test1/db/mux_8hb.tdf Line: 23
 Info (12128): Elaborating entity "mux_8hb" for hierarchy "image_buffer:U3|image_RAM:Inst_buffer_top|altsyncram:altsyncram_component|altsyncram_a2q1:auto_generated|mux_8hb:mux3" File: C:/Users/bwood/Merchants-Major/camera_test1/db/altsyncram_a2q1.tdf Line: 50
-Info (12128): Elaborating entity "vga_driver" for hierarchy "vga_driver:U4" File: C:/Users/bwood/Quartus_Prime/Camera_testing/top_level.sv Line: 105
+Info (12128): Elaborating entity "vga_driver" for hierarchy "vga_driver:U4" File: C:/Users/bwood/Quartus_Prime/Camera_testing/top_level.sv Line: 109
 Warning (10230): Verilog HDL assignment warning at vga_driver.sv(45): truncated value with size 32 to match size of target (21) File: C:/Users/bwood/Merchants-Major/camera_test1/vga_driver.sv Line: 45
 Warning (10230): Verilog HDL assignment warning at vga_driver.sv(46): truncated value with size 32 to match size of target (12) File: C:/Users/bwood/Merchants-Major/camera_test1/vga_driver.sv Line: 46
 Warning (10270): Verilog HDL Case Statement warning at vga_driver.sv(67): incomplete case statement has no default case item File: C:/Users/bwood/Merchants-Major/camera_test1/vga_driver.sv Line: 67
 Warning (10230): Verilog HDL assignment warning at vga_driver.sv(81): truncated value with size 32 to match size of target (1) File: C:/Users/bwood/Merchants-Major/camera_test1/vga_driver.sv Line: 81
-Info (12128): Elaborating entity "color_debug" for hierarchy "color_debug:U5" File: C:/Users/bwood/Quartus_Prime/Camera_testing/top_level.sv Line: 139
+Info (12128): Elaborating entity "color_debug" for hierarchy "color_debug:U5" File: C:/Users/bwood/Quartus_Prime/Camera_testing/top_level.sv Line: 145
 Warning (10230): Verilog HDL assignment warning at colour_debug.sv(42): truncated value with size 32 to match size of target (10) File: C:/Users/bwood/Merchants-Major/camera_test1/colour_debug.sv Line: 42
 Warning (10230): Verilog HDL assignment warning at colour_debug.sv(50): truncated value with size 32 to match size of target (9) File: C:/Users/bwood/Merchants-Major/camera_test1/colour_debug.sv Line: 50
 Info (12128): Elaborating entity "rgb_to_hsv" for hierarchy "color_debug:U5|rgb_to_hsv:hsv_converter" File: C:/Users/bwood/Merchants-Major/camera_test1/colour_debug.sv Line: 94
@@ -1414,7 +1562,10 @@ Warning (10230): Verilog HDL assignment warning at rbg_to_hsv.sv(113): truncated
 Warning (10230): Verilog HDL assignment warning at rbg_to_hsv.sv(119): truncated value with size 32 to match size of target (16) File: C:/Users/bwood/Merchants-Major/camera_test1/rbg_to_hsv.sv Line: 119
 Warning (10230): Verilog HDL assignment warning at rbg_to_hsv.sv(121): truncated value with size 16 to match size of target (9) File: C:/Users/bwood/Merchants-Major/camera_test1/rbg_to_hsv.sv Line: 121
 Info (12128): Elaborating entity "color_detector" for hierarchy "color_debug:U5|color_detector:detector" File: C:/Users/bwood/Merchants-Major/camera_test1/colour_debug.sv Line: 109
-Info (12128): Elaborating entity "display" for hierarchy "display:u_display" File: C:/Users/bwood/Quartus_Prime/Camera_testing/top_level.sv Line: 153
+Info (12128): Elaborating entity "camera_drive_flags" for hierarchy "camera_drive_flags:u_drive_flags" File: C:/Users/bwood/Quartus_Prime/Camera_testing/top_level.sv Line: 161
+Warning (10230): Verilog HDL assignment warning at camera_drive_flags.sv(116): truncated value with size 32 to match size of target (20) File: C:/Users/bwood/Merchants-Major/camera_test1/camera_drive_flags.sv Line: 116
+Warning (10230): Verilog HDL assignment warning at camera_drive_flags.sv(117): truncated value with size 32 to match size of target (20) File: C:/Users/bwood/Merchants-Major/camera_test1/camera_drive_flags.sv Line: 117
+Info (12128): Elaborating entity "display" for hierarchy "display:u_display" File: C:/Users/bwood/Quartus_Prime/Camera_testing/top_level.sv Line: 177
 Warning (10230): Verilog HDL assignment warning at display.sv(32): truncated value with size 32 to match size of target (4) File: C:/Users/bwood/Quartus_Prime/Camera_testing/display.sv Line: 32
 Warning (10270): Verilog HDL Case Statement warning at display.sv(40): incomplete case statement has no default case item File: C:/Users/bwood/Quartus_Prime/Camera_testing/display.sv Line: 40
 Warning (10230): Verilog HDL assignment warning at display.sv(70): truncated value with size 32 to match size of target (4) File: C:/Users/bwood/Quartus_Prime/Camera_testing/display.sv Line: 70
@@ -1422,7 +1573,7 @@ Warning (10230): Verilog HDL assignment warning at display.sv(71): truncated val
 Warning (10230): Verilog HDL assignment warning at display.sv(72): truncated value with size 32 to match size of target (4) File: C:/Users/bwood/Quartus_Prime/Camera_testing/display.sv Line: 72
 Warning (10230): Verilog HDL assignment warning at display.sv(73): truncated value with size 32 to match size of target (4) File: C:/Users/bwood/Quartus_Prime/Camera_testing/display.sv Line: 73
 Info (12128): Elaborating entity "seven_seg" for hierarchy "display:u_display|seven_seg:u_digit0" File: C:/Users/bwood/Quartus_Prime/Camera_testing/display.sv Line: 53
-Info (12128): Elaborating entity "roi_overlay" for hierarchy "roi_overlay:overlay_inst" File: C:/Users/bwood/Quartus_Prime/Camera_testing/top_level.sv Line: 161
+Info (12128): Elaborating entity "roi_overlay" for hierarchy "roi_overlay:overlay_inst" File: C:/Users/bwood/Quartus_Prime/Camera_testing/top_level.sv Line: 184
 Info (278001): Inferred 3 megafunctions from design logic
     Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "color_debug:U5|rgb_to_hsv:hsv_converter|Div0" File: C:/Users/bwood/Merchants-Major/camera_test1/rbg_to_hsv.sv Line: 106
     Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "color_debug:U5|rgb_to_hsv:hsv_converter|Div2" File: C:/Users/bwood/Merchants-Major/camera_test1/rbg_to_hsv.sv Line: 121
@@ -1443,9 +1594,18 @@ Warning (12241): 2 hierarchies have connectivity warnings - see the Connectivity
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "OV7670_PWDN" is stuck at GND File: C:/Users/bwood/Quartus_Prime/Camera_testing/top_level.sv Line: 10
     Warning (13410): Pin "OV7670_RESET" is stuck at VCC File: C:/Users/bwood/Quartus_Prime/Camera_testing/top_level.sv Line: 11
-    Warning (13410): Pin "VGA_SYNC_N" is stuck at GND File: C:/Users/bwood/Quartus_Prime/Camera_testing/top_level.sv Line: 20
+    Warning (13410): Pin "LEDR[0]" is stuck at GND File: C:/Users/bwood/Quartus_Prime/Camera_testing/top_level.sv Line: 13
+    Warning (13410): Pin "LEDR[1]" is stuck at GND File: C:/Users/bwood/Quartus_Prime/Camera_testing/top_level.sv Line: 13
+    Warning (13410): Pin "LEDR[3]" is stuck at GND File: C:/Users/bwood/Quartus_Prime/Camera_testing/top_level.sv Line: 13
+    Warning (13410): Pin "LEDR[4]" is stuck at GND File: C:/Users/bwood/Quartus_Prime/Camera_testing/top_level.sv Line: 13
+    Warning (13410): Pin "LEDR[5]" is stuck at GND File: C:/Users/bwood/Quartus_Prime/Camera_testing/top_level.sv Line: 13
+    Warning (13410): Pin "LEDR[6]" is stuck at GND File: C:/Users/bwood/Quartus_Prime/Camera_testing/top_level.sv Line: 13
+    Warning (13410): Pin "LEDR[7]" is stuck at GND File: C:/Users/bwood/Quartus_Prime/Camera_testing/top_level.sv Line: 13
+    Warning (13410): Pin "LEDR[8]" is stuck at GND File: C:/Users/bwood/Quartus_Prime/Camera_testing/top_level.sv Line: 13
+    Warning (13410): Pin "LEDR[9]" is stuck at GND File: C:/Users/bwood/Quartus_Prime/Camera_testing/top_level.sv Line: 13
+    Warning (13410): Pin "VGA_SYNC_N" is stuck at GND File: C:/Users/bwood/Quartus_Prime/Camera_testing/top_level.sv Line: 21
 Info (286030): Timing-Driven Synthesis is running
-Info (17049): 16 registers lost all their fanouts during netlist optimizations.
+Info (17049): 55 registers lost all their fanouts during netlist optimizations.
 Info (144001): Generated suppressed messages file C:/Users/bwood/Merchants-Major/camera_test1/output_files/Camera.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 8 node(s), including 0 DDIO, 2 PLL, 0 transceiver and 0 LCELL
@@ -1459,18 +1619,18 @@ Warning (21074): Design contains 3 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "KEY[1]" File: C:/Users/bwood/Quartus_Prime/Camera_testing/top_level.sv Line: 12
     Warning (15610): No output dependent on input pin "KEY[2]" File: C:/Users/bwood/Quartus_Prime/Camera_testing/top_level.sv Line: 12
     Warning (15610): No output dependent on input pin "KEY[3]" File: C:/Users/bwood/Quartus_Prime/Camera_testing/top_level.sv Line: 12
-Info (21057): Implemented 1716 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 1788 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 16 input pins
-    Info (21059): Implemented 61 output pins
+    Info (21059): Implemented 71 output pins
     Info (21060): Implemented 1 bidirectional pins
-    Info (21061): Implemented 1444 logic cells
+    Info (21061): Implemented 1506 logic cells
     Info (21064): Implemented 192 RAM segments
     Info (21065): Implemented 2 PLLs
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 41 warnings
-    Info: Peak virtual memory: 4951 megabytes
-    Info: Processing ended: Fri Oct 24 17:52:31 2025
-    Info: Elapsed time: 00:00:26
-    Info: Total CPU time (on all processors): 00:00:54
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 52 warnings
+    Info: Peak virtual memory: 4936 megabytes
+    Info: Processing ended: Fri Oct 31 21:37:25 2025
+    Info: Elapsed time: 00:00:08
+    Info: Total CPU time (on all processors): 00:00:16
 
 
 +------------------------------------------+

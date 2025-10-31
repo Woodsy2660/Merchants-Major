@@ -1,4 +1,16 @@
 
+State Machine - |top_level|camera_drive_flags:u_drive_flags|rgb_to_hsv:u_hsv|max_channel_d
+Name max_channel_d.00 max_channel_d.10 max_channel_d.01 
+max_channel_d.00 0 0 0 
+max_channel_d.01 1 0 1 
+max_channel_d.10 1 1 0 
+
+State Machine - |top_level|camera_drive_flags:u_drive_flags|rgb_to_hsv:u_hsv|max_channel
+Name max_channel.00 max_channel.10 max_channel.01 
+max_channel.00 0 0 0 
+max_channel.01 1 0 1 
+max_channel.10 1 1 0 
+
 State Machine - |top_level|color_debug:U5|rgb_to_hsv:hsv_converter|max_channel_d
 Name max_channel_d.00 max_channel_d.10 max_channel_d.01 
 max_channel_d.00 0 0 0 
