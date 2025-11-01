@@ -1,3 +1,4 @@
+/*
 module top_level (
     input  CLOCK_50,
     input  [17:0] SW,
@@ -71,5 +72,7 @@ module top_level (
     assign LEDR[4] = servo_pwm_out;
     assign LEDR[3:0] = 4'b0;  // Reserved for debug
     assign LEDR[17:8] = 10'b0;
+    */
     
+
 endmodule
