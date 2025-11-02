@@ -1,3 +1,4 @@
+
 module top_level(
     input   logic        CLOCK_50,
 
@@ -451,4 +452,5 @@ module top_level(
     assign LEDR[8] = ir_uart_out;                // UART TX line state
     assign LEDR[9] = ir_data_ready_count[20];    // Blink when IR data received (divided)
 
+	 
 endmodule

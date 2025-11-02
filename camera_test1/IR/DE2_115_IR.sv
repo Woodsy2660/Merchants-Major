@@ -405,6 +405,19 @@ IR_RECEIVE u1(
 		.oDATA(hex_data)        
 );
 
+/*   What the IR_RECEIVE module does:
+ Takes the 38 kHz IR signal input (IRDA_RXD).
+
+ Produces a 32-bit code (hex_data).
+
+Raises data_ready for one clock when a full code is available.
+
+The KEY[0] pushbutton acts as a reset.
+ */
+
+
+
+
 // UART Transmitter - sends JSON commands to robot via GPIO[31]
 // Make sure you have uart_tx.v in your project!
 uart_tx #(
@@ -474,6 +487,7 @@ logic [7:0] json_backward [JSON_LEN] = '{8'h7B,8'h22,8'h54,8'h22,8'h3A,8'h31,8'h
 // Stop: {"T":1,"L":0.0,"R":0.0}
 logic [7:0] json_stop [JSON_LEN] = '{8'h7B,8'h22,8'h54,8'h22,8'h3A,8'h31,8'h2C,8'h22,8'h4C,8'h22,8'h3A,8'h30,8'h2E,8'h30,8'h2C,8'h22,8'h52,8'h22,8'h3A,8'h30,8'h2E,8'h30,8'h7D,8'h0A};
 
+
 // Intermediate array to hold command being sent
 logic [7:0] json_to_send [JSON_LEN];
 
@@ -492,6 +506,8 @@ wire data_ready_stable = data_ready_d1 && data_ready_d2;  // Data ready for 2 cy
 //=============================================================================
 always_ff @(posedge CLOCK_50) begin
     // Update button state based on IR input
+	
+	// This section here decodes which button was pressed
     if (data_ready) begin
         case (hex_data[31:16])
             BTN_FORWARD:  button_state <= 5'b10000;
@@ -507,9 +523,12 @@ always_ff @(posedge CLOCK_50) begin
     end
     
     button_state_prev <= button_state;
+
+	// The design remembers the previous state to detect rising edges (new button press)
     
+
     // Check for rising edge on any button
-    if (!tx_valid) begin
+    if (!tx_valid) begin										// not tx_valid means that we are currently not trying to send anything
         if (!button_state_prev[4] && button_state[4]) begin
             // Forward button pressed
             json_to_send <= json_forward;
@@ -542,12 +561,13 @@ always_ff @(posedge CLOCK_50) begin
             // Stop button pressed
             json_to_send <= json_stop;
             tx_valid <= 1'b1;
-            byte_to_send <= json_stop[0];
+            byte_to_send <= json_stop[0];	// Starts sending the first byte of the command when a button is pressed
             char_index <= 1;
         end
-    end
+    end 		
+
     
-    // Handshake protocol for transmission
+    // Handshake protocol for transmission (signals it is ready for the next byte)
     if (tx_valid && tx_ready) begin
         if (char_index >= JSON_LEN) begin
             tx_valid <= 1'b0;
