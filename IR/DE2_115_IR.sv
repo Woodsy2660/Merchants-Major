@@ -173,7 +173,7 @@ module DE2_115_IR
 		FL_WP_N,
 
 		//////// GPIO //////////
-		GPIO_1,
+		GPIO,
 
 		//////// HSMC (LVDS) //////////
 		HSMC_CLKIN_P1,
@@ -362,7 +362,7 @@ output		          	FL_WE_N;
 output		          	FL_WP_N;
 
 //////////// GPIO //////////
-inout		    [35:0]		GPIO_1;
+inout		    [35:0]		GPIO;
 
 //////////// HSMC (LVDS) //////////
 input		          		HSMC_CLKIN_P1;
@@ -416,7 +416,7 @@ uart_tx #(
 		.rst(1'b0), 
 		.data_tx(byte_to_send),
 		.valid(tx_valid),
-		.uart_out(GPIO_1[31]),  // UART output on GPIO pin 31
+		.uart_out(GPIO[31]),  // UART output on GPIO pin 31
 		.ready(tx_ready)
 );
 
