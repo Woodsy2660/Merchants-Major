@@ -1,0 +1,263 @@
+// camera_drive_flags.sv
+// Tallies green/red on left vs right of the image centre within a horizontal strip.
+// Emits frame-synchronous turn flags and a "centered" flag.
+// Compatible with 640x480 timing & RGB444 video_data, using your rgb_to_hsv + color_detector.
+
+module camera_drive_flags #(
+    // ---- Geometry ----
+    parameter int IMG_W                 = 640,
+    parameter int IMG_H                 = 480,
+    parameter int MID_X                 = 320,      // image centre column
+    parameter int MID_Y                 = 240,      // image centre row
+    parameter int STRIP_HALF_HEIGHT     = 8,        // rows above/below MID_Y to include in votes
+    // Require a minimum dominance to command a turn (jitter guard)
+    parameter int MIN_DOMINANCE         = 1500,     // tune to your scene; ~ (#strip_rows * some width)
+    // Require a minimum total coloured pixels per side (otherwise "no decision")
+    parameter int MIN_COLORED_PIXELS    = 2000,
+
+    // ---- Desired arrangement ----
+    // If 1: we want GREEN on the LEFT and RED on the RIGHT.
+    // If 0: we want GREEN on the RIGHT and RED on the LEFT.
+    parameter bit DESIRED_GREEN_LEFT    = 1'b1,
+
+    // ---- "Black box at centre" thresholds (use centre HSV from color_debug) ----
+    parameter int BLACK_V_MAX           = 40,       // centre V <= this => black
+    parameter int BLACK_S_MAX           = 50,       // optional: centre S <= this
+
+    // ---- HSV colour thresholds for color_detector (override defaults if you like) ----
+    parameter int H_RED_LOW1            = 0,
+    parameter int H_RED_HIGH1           = 10,
+    parameter int H_RED_LOW2            = 350,
+    parameter int H_RED_HIGH2           = 359,
+    parameter int H_GREEN_LOW           = 80,
+    parameter int H_GREEN_HIGH          = 140,
+    parameter int H_BLUE_LOW            = 200,      // unused here, but left for completeness
+    parameter int H_BLUE_HIGH           = 260,
+    parameter int S_MIN                 = 50,
+    parameter int V_MIN                 = 40
+)(
+    input  logic        clk,
+    input  logic        vga_ready,          // pixel valid (one per pixel)
+    input  logic [9:0]  x_count,            // 0..639
+    input  logic [8:0]  y_count,            // 0..479
+    input  logic [11:0] video_data,         // RGB444
+
+    // Centre HSV from your color_debug (saves recompute)
+    input  logic        center_hsv_valid,   // aligned with centre HSV below
+    input  logic [7:0]  center_saturation,
+    input  logic [7:0]  center_value,
+
+    // Outputs pulse HIGH for 1 cycle at start-of-next-frame with the decision for the previous frame
+    output logic        flag_turn_left,
+    output logic        flag_turn_right,
+    output logic        flag_centered,      // colours aligned AND centre is black
+    output logic        aligned_ok,         // colours aligned (ignores centre black)
+
+    // Optional debug counters (latched at decision moment)
+    output logic [19:0] dbg_green_left,
+    output logic [19:0] dbg_green_right,
+    output logic [19:0] dbg_red_left,
+    output logic [19:0] dbg_red_right
+);
+
+    // -----------------------------
+    // 1) Convert streaming RGB444 -> HSV (pipelined).
+    // -----------------------------
+    logic [3:0] px_r4, px_g4, px_b4;
+    assign px_r4 = video_data[11:8];
+    assign px_g4 = video_data[7:4];
+    assign px_b4 = video_data[3:0];
+
+    // Pipeline delays to align x/y with HSV valid
+    logic [9:0] x_d1, x_d2;
+    logic [8:0] y_d1, y_d2;
+    logic       vld_d1, vld_d2;
+
+    always_ff @(posedge clk) begin
+        vld_d1 <= vga_ready;
+        vld_d2 <= vld_d1;
+
+        x_d1   <= x_count;
+        x_d2   <= x_d1;
+        y_d1   <= y_count;
+        y_d2   <= y_d1;
+    end
+
+    // HSV converter (same as your module)
+    logic [8:0] h_out;
+    logic [7:0] s_out, v_out;
+    logic       hsv_valid;
+
+    rgb_to_hsv u_stream_hsv (
+        .clk      (clk),
+        .r_in     (px_r4),
+        .g_in     (px_g4),
+        .b_in     (px_b4),
+        .valid_in (vga_ready),
+        .h_out    (h_out),
+        .s_out    (s_out),
+        .v_out    (v_out),
+        .valid_out(hsv_valid)
+    );
+
+    // -----------------------------
+    // 2) Colour classification per pixel (using your detector, parameterised).
+    // -----------------------------
+    logic is_red_px, is_green_px, is_blue_px;
+
+    color_detector #(
+        .H_RED_LOW1   (H_RED_LOW1),
+        .H_RED_HIGH1  (H_RED_HIGH1),
+        .H_RED_LOW2   (H_RED_LOW2),
+        .H_RED_HIGH2  (H_RED_HIGH2),
+        .H_GREEN_LOW  (H_GREEN_LOW),
+        .H_GREEN_HIGH (H_GREEN_HIGH),
+        .H_BLUE_LOW   (H_BLUE_LOW),
+        .H_BLUE_HIGH  (H_BLUE_HIGH),
+        .S_MIN        (S_MIN),
+        .V_MIN        (V_MIN)
+    ) u_det (
+        .h       (h_out),
+        .s       (s_out),
+        .v       (v_out),
+        .is_red  (is_red_px),
+        .is_green(is_green_px),
+        .is_blue (is_blue_px)
+    );
+
+    // -----------------------------
+    // 3) Region-of-interest + counters.
+    // -----------------------------
+    // We only count pixels in a horizontal strip: [MID_Y-STRIP_HALF_HEIGHT, MID_Y+STRIP_HALF_HEIGHT]
+    function logic in_strip(input [8:0] y);
+        return ( (y >= MID_Y-STRIP_HALF_HEIGHT) && (y <= MID_Y+STRIP_HALF_HEIGHT) );
+    endfunction
+
+    // Running tallies for current frame
+    logic [19:0] green_left_cnt, green_right_cnt;
+    logic [19:0] red_left_cnt,   red_right_cnt;
+
+    // Latch for previous-frame decision (presented 1 cycle at next frame start)
+    logic [19:0] green_left_lat, green_right_lat, red_left_lat, red_right_lat;
+
+    // Detect start of frame (SOF): (x==0 && y==0) with pixel valid
+    logic sof;  // asserted when the first pixel of a new frame arrives at classifier timing
+    assign sof = vld_d2 && (x_d2 == 10'd0) && (y_d2 == 9'd0);
+
+    // End-of-frame decision is applied *at the next SOF*:
+    //   - First, present flags/counters for the frame we just finished.
+    //   - Then, clear counters for the new frame.
+    // This ensures all pixels of the previous frame were counted.
+
+    // Centre black test (use the centre HSV you already compute elsewhere)
+    logic center_is_black;
+    always_comb begin
+        center_is_black = (center_value <= BLACK_V_MAX) && (center_saturation <= BLACK_S_MAX);
+    end
+
+    // Decision wires
+    logic desired_green_on_left; assign desired_green_on_left = DESIRED_GREEN_LEFT;
+
+    // Signed differences for dominance decisions
+    logic signed [20:0] d_green; // right - left
+    logic signed [20:0] d_red;   // right - left
+
+    // Output flags (1-cycle pulses at SOF)
+    always_ff @(posedge clk) begin
+        if (sof) begin
+            // Latch debug counters for the finished frame
+            green_left_lat  <= green_left_cnt;
+            green_right_lat <= green_right_cnt;
+            red_left_lat    <= red_left_cnt;
+            red_right_lat   <= red_right_cnt;
+
+            // Compute differences (right - left)
+            d_green <= $signed({1'b0, green_right_cnt}) - $signed({1'b0, green_left_cnt});
+            d_red   <= $signed({1'b0, red_right_cnt  }) - $signed({1'b0, red_left_cnt  });
+
+            // Default outputs low; we set them conditionally below
+            flag_turn_left  <= 1'b0;
+            flag_turn_right <= 1'b0;
+            flag_centered   <= 1'b0;
+            aligned_ok      <= 1'b0;
+
+            // Total coloured per side (guard small/noisy frames)
+            logic [20:0] total_left, total_right;
+            total_left  <= green_left_cnt + red_left_cnt;
+            total_right <= green_right_cnt + red_right_cnt;
+
+            // Colour arrangement checks
+            logic green_left_major  = (green_left_cnt  > green_right_cnt);
+            logic red_right_major   = (red_right_cnt   > red_left_cnt);
+            logic green_right_major = (green_right_cnt > green_left_cnt);
+            logic red_left_major    = (red_left_cnt    > red_right_cnt);
+
+            // Are colours in desired arrangement?
+            logic colours_aligned;
+            if (desired_green_on_left) begin
+                colours_aligned = green_left_major && red_right_major;
+            end else begin
+                colours_aligned = green_right_major && red_left_major;
+            end
+
+            // Only decide if we have enough coloured pixels overall
+            if ((total_left >= MIN_COLORED_PIXELS) && (total_right >= MIN_COLORED_PIXELS)) begin
+                aligned_ok <= colours_aligned;
+
+                if (colours_aligned) begin
+                    // If aligned and centre is black => centered action
+                    if (center_is_black) begin
+                        flag_centered <= 1'b1;
+                    end
+                    // No turn command when aligned
+                end else begin
+                    // Not aligned → choose a turn direction based on where GREEN is
+                    // Use dominance threshold to avoid chatter.
+                    if (desired_green_on_left) begin
+                        // We want GREEN mostly on left.
+                        if (d_green >  $signed(MIN_DOMINANCE)) begin
+                            // More green on RIGHT than left -> turn RIGHT to move the boundary toward centre
+                            flag_turn_right <= 1'b1;
+                        end else if (d_green < -$signed(MIN_DOMINANCE)) begin
+                            // More green on LEFT than right (but colours still not aligned by RED test)
+                            flag_turn_left  <= 1'b1;
+                        end
+                    end else begin
+                        // We want GREEN mostly on right.
+                        if (d_green >  $signed(MIN_DOMINANCE)) begin
+                            // More green right than left (but misaligned by RED) → still bias towards right
+                            flag_turn_right <= 1'b1;
+                        end else if (d_green < -$signed(MIN_DOMINANCE)) begin
+                            flag_turn_left  <= 1'b1;
+                        end
+                    end
+                end
+            end
+
+            // Clear counters for the new frame
+            green_left_cnt  <= '0;
+            green_right_cnt <= '0;
+            red_left_cnt    <= '0;
+            red_right_cnt   <= '0;
+        end else begin
+            // Accumulate counts for current frame when HSV valid and in strip
+            if (hsv_valid && in_strip(y_d2)) begin
+                if (x_d2 < MID_X) begin
+                    if (is_green_px) green_left_cnt  <= green_left_cnt  + 1;
+                    if (is_red_px)   red_left_cnt    <= red_left_cnt    + 1;
+                end else if (x_d2 > MID_X) begin
+                    if (is_green_px) green_right_cnt <= green_right_cnt + 1;
+                    if (is_red_px)   red_right_cnt   <= red_right_cnt   + 1;
+                end
+                // ignore x == MID_X to avoid double counting centre column
+            end
+        end
+    end
+
+    // Drive debug outputs (latched copies)
+    assign dbg_green_left  = green_left_lat;
+    assign dbg_green_right = green_right_lat;
+    assign dbg_red_left    = red_left_lat;
+    assign dbg_red_right   = red_right_lat;
+
+endmodule

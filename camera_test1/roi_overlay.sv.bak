@@ -1,0 +1,15 @@
+
+module roi_overlay (
+	input logic [9:0]		x_count,
+	input logic [8:0]		y_count,
+	input logic [11:0] 	video_in,
+	output logic [11:0]	video_out
+);
+	localparam int ROI_X_MIN = 310;
+	localparam int ROI_X_MAX = 330;
+	localparam int ROI_Y_MIN = 230;
+	localparam int BORDER = 1;
+	
+	logic roi_border;
+	assign roi_border = 
+		
