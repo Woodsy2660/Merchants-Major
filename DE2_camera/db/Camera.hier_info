@@ -8091,9 +8091,9 @@ val_decimal[7] <= center_value[7].DB_MAX_OUTPUT_PORT_TYPE
 val_decimal[8] <= <GND>
 val_decimal[9] <= <GND>
 val_decimal[10] <= <GND>
-red_detected <= color_detector:detector.is_red
-green_detected <= color_detector:detector.is_green
-black_detected <= color_detector:detector.is_black
+red_detected <= red_detected~reg0.DB_MAX_OUTPUT_PORT_TYPE
+green_detected <= green_detected~reg0.DB_MAX_OUTPUT_PORT_TYPE
+black_detected <= black_detected~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |top_level|color_debug:U5|rgb_to_hsv:hsv_converter

@@ -130,7 +130,11 @@ module top_level(
     logic [8:0]  debug_y_count;
     logic [11:0] debug_center_pixel;
     logic [3:0]  debug_red, debug_green, debug_blue;
+<<<<<<< Updated upstream
     logic [8:0]  debug_hue;
+=======
+    logic [7:0]  debug_hue;
+>>>>>>> Stashed changes
     logic [7:0]  debug_sat, debug_val;
     logic [10:0] debug_hue_dec, debug_sat_dec, debug_val_dec;
     logic        debug_red_det, debug_green_det, debug_black_det;
@@ -215,6 +219,160 @@ module top_level(
         .display2(HEX2),
         .display3(HEX3)
     );
+<<<<<<< Updated upstream
+=======
+	 
+	 
+	
+	 
+	 
+
+//    // If you want to show debug hex for other values, map HEX4/HEX5 accordingly:
+//    assign HEX4 = 7'h7F; // blank (active-low segments may differ — adjust per your SEG module)
+//    assign HEX5 = 7'h7F; // blank
+
+
+
+//	// NEW: Saturation (2 digits)
+//	display u_display_sat (
+//		 .clk     (clk_video),
+//		 .value   (sat_percent),   // your saturation (0–255)
+//		 .display0(HEX4),
+//		 .display1(HEX5),
+//		 .display2(),                // unused
+//		 .display3()
+//	);
+//
+//	// If you have two more HEX (say HEX6/HEX7), you could show Value too:
+//	display u_display_val (
+//	     .clk     (clk_video),
+//	     .value   (val_percent),
+//	     .display0(HEX6),
+//	     .display1(HEX7),
+//	     .display2(),
+//	     .display3()
+//	 );
+
+
+	// FFT stuff start here: 
+	
+	localparam W        = 16;
+	localparam NSamples = 1024;
+	localparam logic [32:0] THRESHOLD = 33'h10000000;  // Specify width
+
+	logic i2c_clk; i2c_pll i2c_pll_u (.areset(1'b0),.inclk0(CLOCK_50),.c0(i2c_clk));
+	logic adc_clk; adc_pll adc_pll_u (.areset(1'b0),.inclk0(CLOCK_50),.c0(adc_clk));
+	logic audio_clk; assign audio_clk = AUD_BCLK;
+
+	assign AUD_XCK = adc_clk;
+
+	// Board-specific I2C connections:
+	generate
+		if (DE1_SOC) begin : DE1_SOC_BOARD
+			set_audio_encoder set_codec_de1_soc (.i2c_clk(i2c_clk), .I2C_SCLK(FPGA_I2C_SCLK), .I2C_SDAT(FPGA_I2C_SDAT));
+			assign I2C_SCLK = 1'b1;
+			assign I2C_SDAT = 1'bZ;
+		end else begin : DE2_115_BOARD
+			set_audio_encoder set_codec_de2_115 (.i2c_clk(i2c_clk), .I2C_SCLK(I2C_SCLK), .I2C_SDAT(I2C_SDAT));
+			assign FPGA_I2C_SCLK = 1'b1;
+			assign FPGA_I2C_SDAT = 1'bZ;
+		end
+	endgenerate
+
+	logic reset; assign reset = ~KEY[1];
+
+	// Audio Input
+	logic [W-1:0]              audio_input_data;
+	logic                      audio_input_valid;
+	mic_load #(.N(W)) u_mic_load (
+		.adclrc(AUD_ADCLRCK),
+		.bclk(AUD_BCLK),
+		.adcdat(AUD_ADCDAT),
+		.sample_data(audio_input_data),
+		.valid(audio_input_valid)
+	);
+	
+	logic [$clog2(NSamples)-1:0] pitch_output_data;
+	
+	fft_pitch_detect #(
+		.W(W), 
+		.NSamples(NSamples), 
+		.THRESHOLD(THRESHOLD)  // Fixed: Added dot before THRESHOLD
+	) u_fft_pitch_detect (
+	    .audio_clk(audio_clk),
+	    .fft_clk(adc_clk),
+	    .reset(reset),
+	    .audio_input_data(audio_input_data),
+	    .audio_input_valid(audio_input_valid),
+	    .pitch_output_data(pitch_output_data),
+	    .pitch_output_valid(),
+		.fire(whistle_detected)  // NEW: Connect fire output
+	);
+	
+	
+		// Display (for peak `k` FFT index displayed on HEX0-HEX3):
+	display u_display_FFT (
+		.clk(adc_clk),
+		.value(pitch_output_data),
+		.display0(HEX4),
+		.display1(HEX5),
+		.display2(HEX6),
+		.display3(HEX7)
+	);
+	
+
+//	    // ============================================================
+//    // COMBINED "FIRE" LOGIC
+//    // ============================================================
+//
+//    logic fire_signal;
+//    assign fire_signal = whistle_detected || black_detected;
+//
+//    assign LEDR[10] = fire_signal; // show on LED
+//    assign LEDR[11] = whistle_detected;
+//    assign LEDR[12] = black_detected;
+
+
+
+//		// TEMPORARY: Force detections based on hue alone
+//		logic test_red   = (debug_hue_dec <= 40) || (debug_hue_dec >= 350);
+//		logic test_green = (debug_hue_dec >= 100) && (debug_hue_dec <= 140);
+//
+//		assign LEDR[7] = test_red;    // Should light for red hues
+//		assign LEDR[8] = test_green;  // Should light for green hues
+//		assign LEDR[9] = debug_black_det;  // Keep original
+
+
+    // ============================================================
+    // SHOOTING LOGIC
+    // ============================================================
+
+    // Shoot_ready latch: goes high when black detected, stays high until reset
+    logic shoot_ready;
+
+    always_ff @(posedge clk_video or posedge whistle_detected) begin
+	 
+        if (whistle_detected)
+            shoot_ready <= 1'b0;   // clear after firing
+				
+        else if (debug_black_det)
+            shoot_ready <= 1'b1;   // set when black detected
+				
+    end
+
+    // Fire only when both shoot_ready and whistle_detected are high
+    logic fire_signal;
+    assign fire_signal = shoot_ready && whistle_detected;
+
+    // ------------------------------------------------------------
+    // LED debugging / visibility
+    // ------------------------------------------------------------
+    assign LEDR[10] = debug_black_det;   // black in sight
+    assign LEDR[11] = shoot_ready;      // ready to fire
+    assign LEDR[12] = whistle_detected; // whistle heard
+    assign LEDR[13] = fire_signal;      // fire output (pulse)
+
+>>>>>>> Stashed changes
 
     // If you want to show debug hex for other values, map HEX4/HEX5 accordingly:
     assign HEX4 = 7'h7F; // blank (active-low segments may differ — adjust per your SEG module)

@@ -74,13 +74,23 @@ module rgb_to_hsv (
         
         // Calculate Value (V) - simply the max
         v_out <= max_val;
-        
-        // Calculate Saturation (S)
-        if (max_val == 8'd0)
-            s_out <= 8'd0;
-        else
-            s_out <= (delta << 8) / max_val;  // (delta * 256) / max_val
+		  
+		 
+			
     end
+	 
+	 			// new saturation calc
+	 
+	 logic [15:0] s_temp;
+		always_ff @(posedge clk) begin
+			if (max_val == 8'd0)
+					s_out <= 8'd0;
+			else begin
+					s_temp = (delta * 16'd255) / max_val;
+					s_out <= s_temp[7:0];
+			end
+			end
+			
     
     // Pipeline stage 3: Calculate Hue
     logic signed [15:0] hue_temp;

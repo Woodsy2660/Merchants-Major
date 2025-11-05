@@ -3,6 +3,7 @@ Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Slow 1200mV 85C Model Setup 'clk'
+<<<<<<< Updated upstream
 Slack : -23.602
 TNS   : -171.085
 
@@ -12,12 +13,34 @@ TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'clk'
 Slack : 0.367
+=======
+Slack : -25.610
+TNS   : -181.777
+
+Type  : Slow 1200mV 85C Model Setup 'PCLK'
+Slack : 1.716
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'clk'
+Slack : 0.385
+>>>>>>> Stashed changes
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'PCLK'
 Slack : 0.440
 TNS   : 0.000
 
+<<<<<<< Updated upstream
+=======
+Type  : Slow 1200mV 85C Model Recovery 'clk'
+Slack : 13.655
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Removal 'clk'
+Slack : 4.757
+TNS   : 0.000
+
+>>>>>>> Stashed changes
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'PCLK'
 Slack : 4.401
 TNS   : 0.000
@@ -27,6 +50,7 @@ Slack : 9.584
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Setup 'clk'
+<<<<<<< Updated upstream
 Slack : -19.364
 TNS   : -137.054
 
@@ -36,12 +60,24 @@ TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'clk'
 Slack : 0.353
+=======
+Slack : -21.231
+TNS   : -147.275
+
+Type  : Slow 1200mV 0C Model Setup 'PCLK'
+Slack : 1.771
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'clk'
+Slack : 0.343
+>>>>>>> Stashed changes
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'PCLK'
 Slack : 0.387
 TNS   : 0.000
 
+<<<<<<< Updated upstream
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'PCLK'
 Slack : 4.511
 TNS   : 0.000
@@ -60,14 +96,55 @@ TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'clk'
 Slack : 0.154
+=======
+Type  : Slow 1200mV 0C Model Recovery 'clk'
+Slack : 14.211
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Removal 'clk'
+Slack : 4.249
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'PCLK'
+Slack : 4.506
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clk'
+Slack : 9.469
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Setup 'clk'
+Slack : -2.269
+TNS   : -3.419
+
+Type  : Fast 1200mV 0C Model Setup 'PCLK'
+Slack : 0.961
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'clk'
+Slack : 0.155
+>>>>>>> Stashed changes
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'PCLK'
 Slack : 0.201
 TNS   : 0.000
 
+<<<<<<< Updated upstream
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'PCLK'
 Slack : 3.979
+=======
+Type  : Fast 1200mV 0C Model Recovery 'clk'
+Slack : 16.489
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Removal 'clk'
+Slack : 2.329
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'PCLK'
+Slack : 3.972
+>>>>>>> Stashed changes
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clk'
