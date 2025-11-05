@@ -1,0 +1,81 @@
+Quartus Prime Archive log --	C:/Users/bwood/INTEGRATED/FSM.qarlog
+
+Archive:	C:/Users/bwood/INTEGRATED/FSM.qar
+Date:		Thu Nov 06 00:14:43 2025
+Quartus Prime		20.1.0 Build 711 06/05/2020 SJ Lite Edition
+
+	=========== Files Selected: ===========
+C:/Users/bwood/FINITE STATE MACHINE/FSM.sv
+C:/Users/bwood/FSM/timer.v
+C:/Users/bwood/INTEGRATED/DE2.qpf
+C:/Users/bwood/INTEGRATED/DE2.qsf
+C:/Users/bwood/INTEGRATED/DE2.sv
+C:/Users/bwood/Merchants-Major/camera_test1/DE2_camera/Camera.out.sdc
+C:/Users/bwood/Merchants-Major/camera_test1/DE2_camera/async_fifo.qip
+C:/Users/bwood/Merchants-Major/camera_test1/DE2_camera/async_fifo.v
+C:/Users/bwood/Merchants-Major/camera_test1/DE2_camera/camera_drive_flags.sv
+C:/Users/bwood/Merchants-Major/camera_test1/DE2_camera/camera_stream_tb.sv
+C:/Users/bwood/Merchants-Major/camera_test1/DE2_camera/colour_debug.sv
+C:/Users/bwood/Merchants-Major/camera_test1/DE2_camera/colour_detect.sv
+C:/Users/bwood/Merchants-Major/camera_test1/DE2_camera/decimate.sv
+C:/Users/bwood/Merchants-Major/camera_test1/DE2_camera/display.sv
+C:/Users/bwood/Merchants-Major/camera_test1/DE2_camera/fft_find_peak.sv
+C:/Users/bwood/Merchants-Major/camera_test1/DE2_camera/fft_input_buffer.sv
+C:/Users/bwood/Merchants-Major/camera_test1/DE2_camera/fft_ip_r22sdf/Butterfly.v
+C:/Users/bwood/Merchants-Major/camera_test1/DE2_camera/fft_ip_r22sdf/DelayBuffer.v
+C:/Users/bwood/Merchants-Major/camera_test1/DE2_camera/fft_ip_r22sdf/FFT.v
+C:/Users/bwood/Merchants-Major/camera_test1/DE2_camera/fft_ip_r22sdf/Multiply.v
+C:/Users/bwood/Merchants-Major/camera_test1/DE2_camera/fft_ip_r22sdf/SdfUnit.v
+C:/Users/bwood/Merchants-Major/camera_test1/DE2_camera/fft_ip_r22sdf/SdfUnit2.v
+C:/Users/bwood/Merchants-Major/camera_test1/DE2_camera/fft_ip_r22sdf/SdfUnit_TC.v
+C:/Users/bwood/Merchants-Major/camera_test1/DE2_camera/fft_ip_r22sdf/Twiddle.v
+C:/Users/bwood/Merchants-Major/camera_test1/DE2_camera/fft_ip_r22sdf/TwiddleConvert4.v
+C:/Users/bwood/Merchants-Major/camera_test1/DE2_camera/fft_ip_r22sdf/TwiddleConvert8.v
+C:/Users/bwood/Merchants-Major/camera_test1/DE2_camera/fft_mag_sq.sv
+C:/Users/bwood/Merchants-Major/camera_test1/DE2_camera/fft_output_buffer.sv
+C:/Users/bwood/Merchants-Major/camera_test1/DE2_camera/fft_pitch_detect.sv
+C:/Users/bwood/Merchants-Major/camera_test1/DE2_camera/fft_pitch_detect_tb.sv
+C:/Users/bwood/Merchants-Major/camera_test1/DE2_camera/i2c_sender.v
+C:/Users/bwood/Merchants-Major/camera_test1/DE2_camera/image_RAM.qip
+C:/Users/bwood/Merchants-Major/camera_test1/DE2_camera/image_RAM.v
+C:/Users/bwood/Merchants-Major/camera_test1/DE2_camera/image_RAM_bb.v
+C:/Users/bwood/Merchants-Major/camera_test1/DE2_camera/image_buffer.sv
+C:/Users/bwood/Merchants-Major/camera_test1/DE2_camera/image_buffer_tb.sv
+C:/Users/bwood/Merchants-Major/camera_test1/DE2_camera/low_pass_conv.sv
+C:/Users/bwood/Merchants-Major/camera_test1/DE2_camera/mic/adc_pll.ppf
+C:/Users/bwood/Merchants-Major/camera_test1/DE2_camera/mic/adc_pll.qip
+C:/Users/bwood/Merchants-Major/camera_test1/DE2_camera/mic/adc_pll.v
+C:/Users/bwood/Merchants-Major/camera_test1/DE2_camera/mic/adc_pll_bb.v
+C:/Users/bwood/Merchants-Major/camera_test1/DE2_camera/mic/i2c_master.sv
+C:/Users/bwood/Merchants-Major/camera_test1/DE2_camera/mic/i2c_pll.ppf
+C:/Users/bwood/Merchants-Major/camera_test1/DE2_camera/mic/i2c_pll.qip
+C:/Users/bwood/Merchants-Major/camera_test1/DE2_camera/mic/i2c_pll.v
+C:/Users/bwood/Merchants-Major/camera_test1/DE2_camera/mic/i2c_pll_bb.v
+C:/Users/bwood/Merchants-Major/camera_test1/DE2_camera/mic/mic_load.sv
+C:/Users/bwood/Merchants-Major/camera_test1/DE2_camera/mic/set_audio_encoder.sv
+C:/Users/bwood/Merchants-Major/camera_test1/DE2_camera/ov7670_controller.v
+C:/Users/bwood/Merchants-Major/camera_test1/DE2_camera/ov7670_pixel_capture.sv
+C:/Users/bwood/Merchants-Major/camera_test1/DE2_camera/ov7670_registers.v
+C:/Users/bwood/Merchants-Major/camera_test1/DE2_camera/rbg_to_hsv.sv
+C:/Users/bwood/Merchants-Major/camera_test1/DE2_camera/roi_overlay.sv
+C:/Users/bwood/Merchants-Major/camera_test1/DE2_camera/seven_seg.sv
+C:/Users/bwood/Merchants-Major/camera_test1/DE2_camera/top_level.sv
+C:/Users/bwood/Merchants-Major/camera_test1/DE2_camera/vga_driver.sv
+C:/Users/bwood/Merchants-Major/camera_test1/DE2_camera/vga_scaler.sv
+C:/Users/bwood/Merchants-Major/camera_test1/DE2_camera/video_pll.ppf
+C:/Users/bwood/Merchants-Major/camera_test1/DE2_camera/video_pll.qip
+C:/Users/bwood/Merchants-Major/camera_test1/DE2_camera/video_pll.v
+C:/Users/bwood/Merchants-Major/camera_test1/DE2_camera/video_pll_bb.v
+C:/Users/bwood/Merchants-Major/camera_test1/DE2_camera/window_function.sv
+C:/Users/bwood/Merchants-Major/camera_test1/IR2/DE2_115_IR.sv
+C:/Users/bwood/Merchants-Major/camera_test1/IR2/IR_RECEIVE_Terasic.v
+C:/Users/bwood/Merchants-Major/camera_test1/IR2/SEG_HEX.v
+C:/Users/bwood/Merchants-Major/camera_test1/IR2/pll1.qip
+C:/Users/bwood/Merchants-Major/camera_test1/IR2/pll1.v
+C:/Users/bwood/Merchants-Major/camera_test1/IR2/uart_tx.sv
+C:/users/bwood/merchants-major/camera_test1/de2_camera/test_waveform.hex
+c:/intelfpga_lite/20.1/quartus/bin64/assignment_defaults.qdf
+	======= Total: 70 files to archive =======
+
+	================ Status: ===============
+All files archived successfully.
