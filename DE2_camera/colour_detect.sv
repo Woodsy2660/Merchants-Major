@@ -13,13 +13,28 @@ module color_detector (
 
     // Red hue range (wraps around 0°)
     parameter H_RED_LOW1   = 0;
-    parameter H_RED_HIGH1  = 10;
+    parameter H_RED_HIGH1  = 20;
     parameter H_RED_LOW2   = 350;
     parameter H_RED_HIGH2  = 359;
 
     // Green hue range
-    parameter H_GREEN_LOW  = 80;
+    parameter H_GREEN_LOW  = 100;
     parameter H_GREEN_HIGH = 140;
+	 
+	 
+	 
+	 // Alternative colours:
+	 
+	     // Red hue range (wraps around 0°)
+//    parameter H_RED_LOW1   = 0;
+//    parameter H_RED_HIGH1  = 30;
+//    parameter H_RED_LOW2   = 350;
+//    parameter H_RED_HIGH2  = 359;
+//
+//    // Green hue range
+//    parameter H_GREEN_LOW  = 0;
+//    parameter H_GREEN_HIGH = 150;
+
 
     // General color thresholds
     parameter S_MIN = 30;   // Minimum saturation (to ignore washed-out colors)

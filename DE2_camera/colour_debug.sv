@@ -17,8 +17,8 @@ module color_debug (
     
     // HSV outputs (converted from RGB)
     output logic [8:0]  center_hue,        // 0-359 degrees
-    output logic [7:0]  center_saturation, // 0-255
-    output logic [7:0]  center_value,      // 0-255
+    output logic [8:0]  center_saturation, // 0-255
+    output logic [8:0]  center_value,      // 0-255
     
     // Decimal output for display module
     output logic [10:0] hue_decimal,

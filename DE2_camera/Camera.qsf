@@ -572,29 +572,8 @@ set_location_assignment PIN_V22 -to HSMC_TX_D_N[16]
 set_location_assignment PIN_T22 -to HSMC_RX_D_N[16]
 set_location_assignment PIN_V24 -to HSMC_CLKOUT_N2
 set_location_assignment PIN_G24 -to HSMC_CLKOUT_N1
-set_global_assignment -name SYSTEMVERILOG_FILE vga_scaler.sv
-set_global_assignment -name SYSTEMVERILOG_FILE seven_seg.sv
-set_global_assignment -name SYSTEMVERILOG_FILE roi_overlay.sv
-set_global_assignment -name SYSTEMVERILOG_FILE rbg_to_hsv.sv
-set_global_assignment -name SYSTEMVERILOG_FILE display.sv
-set_global_assignment -name SYSTEMVERILOG_FILE colour_detect.sv
-set_global_assignment -name SYSTEMVERILOG_FILE colour_debug.sv
-set_global_assignment -name SYSTEMVERILOG_FILE camera_drive_flags.sv
-set_global_assignment -name HEX_FILE colorbars.hex
-set_global_assignment -name SYSTEMVERILOG_FILE ov7670_pixel_capture.sv
-set_global_assignment -name SDC_FILE Camera.out.sdc
-set_global_assignment -name SYSTEMVERILOG_FILE image_buffer.sv
-set_global_assignment -name VERILOG_FILE ov7670_registers.v
-set_global_assignment -name VERILOG_FILE i2c_sender.v
-set_global_assignment -name VERILOG_FILE ov7670_controller.v
-set_global_assignment -name SYSTEMVERILOG_FILE image_buffer_tb.sv
-set_global_assignment -name QIP_FILE image_RAM.qip
-set_global_assignment -name SYSTEMVERILOG_FILE vga_driver.sv
-set_global_assignment -name SYSTEMVERILOG_FILE camera_stream_tb.sv
-set_global_assignment -name QIP_FILE video_pll.qip
 set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
 set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
-set_global_assignment -name SYSTEMVERILOG_FILE top_level.sv
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
@@ -1148,6 +1127,40 @@ set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to OV7670_HREF
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to OV7670_VSYNC
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to OV7670_SIOD
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to OV7670_SIOC
-set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
 set_global_assignment -name TIMING_ANALYZER_MULTICORNER_ANALYSIS ON
 set_global_assignment -name SMART_RECOMPILE ON
+set_global_assignment -name QIP_FILE async_fifo.qip
+set_global_assignment -name SYSTEMVERILOG_FILE window_function.sv
+set_global_assignment -name SYSTEMVERILOG_FILE low_pass_conv.sv
+set_global_assignment -name SYSTEMVERILOG_FILE fft_pitch_detect_tb.sv
+set_global_assignment -name SYSTEMVERILOG_FILE fft_pitch_detect.sv
+set_global_assignment -name SYSTEMVERILOG_FILE fft_output_buffer.sv
+set_global_assignment -name SYSTEMVERILOG_FILE fft_mag_sq.sv
+set_global_assignment -name SYSTEMVERILOG_FILE fft_input_buffer.sv
+set_global_assignment -name SYSTEMVERILOG_FILE fft_find_peak.sv
+set_global_assignment -name SYSTEMVERILOG_FILE decimate.sv
+set_global_assignment -name VERILOG_FILE async_fifo.v
+set_global_assignment -name SYSTEMVERILOG_FILE vga_scaler.sv
+set_global_assignment -name SYSTEMVERILOG_FILE seven_seg.sv
+set_global_assignment -name SYSTEMVERILOG_FILE roi_overlay.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rbg_to_hsv.sv
+set_global_assignment -name SYSTEMVERILOG_FILE display.sv
+set_global_assignment -name SYSTEMVERILOG_FILE colour_detect.sv
+set_global_assignment -name SYSTEMVERILOG_FILE colour_debug.sv
+set_global_assignment -name SYSTEMVERILOG_FILE camera_drive_flags.sv
+set_global_assignment -name HEX_FILE colorbars.hex
+set_global_assignment -name SYSTEMVERILOG_FILE ov7670_pixel_capture.sv
+set_global_assignment -name SDC_FILE Camera.out.sdc
+set_global_assignment -name SYSTEMVERILOG_FILE image_buffer.sv
+set_global_assignment -name VERILOG_FILE ov7670_registers.v
+set_global_assignment -name VERILOG_FILE i2c_sender.v
+set_global_assignment -name VERILOG_FILE ov7670_controller.v
+set_global_assignment -name SYSTEMVERILOG_FILE image_buffer_tb.sv
+set_global_assignment -name QIP_FILE image_RAM.qip
+set_global_assignment -name SYSTEMVERILOG_FILE vga_driver.sv
+set_global_assignment -name SYSTEMVERILOG_FILE camera_stream_tb.sv
+set_global_assignment -name QIP_FILE video_pll.qip
+set_global_assignment -name SYSTEMVERILOG_FILE top_level.sv
+set_global_assignment -name SEARCH_PATH "c:\\users\\jiaho\\documents\\github\\merchants-major\\de2_camera\\mic"
+set_global_assignment -name SEARCH_PATH "c:\\users\\jiaho\\documents\\github\\merchants-major\\de2_camera\\fft_ip_r22sdf"
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

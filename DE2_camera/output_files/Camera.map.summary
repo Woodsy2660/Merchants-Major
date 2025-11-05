@@ -1,14 +1,14 @@
-Analysis & Synthesis Status : Successful - Sun Nov 02 17:57:44 2025
+Analysis & Synthesis Status : Successful - Wed Nov 05 19:16:36 2025
 Quartus Prime Version : 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 Revision Name : Camera
 Top-level Entity Name : top_level
 Family : Cyclone IV E
-Total logic elements : 1,655
-    Total combinational functions : 1,551
-    Dedicated logic registers : 431
-Total registers : 431
-Total pins : 110
+Total logic elements : 28,270
+    Total combinational functions : 16,536
+    Dedicated logic registers : 13,211
+Total registers : 13211
+Total pins : 133
 Total virtual pins : 0
-Total memory bits : 1,572,864
-Embedded Multiplier 9-bit elements : 0
-Total PLLs : 1
+Total memory bits : 1,613,216
+Embedded Multiplier 9-bit elements : 176
+Total PLLs : 3
