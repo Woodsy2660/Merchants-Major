@@ -97,15 +97,30 @@ module color_debug (
     assign hue_decimal = {2'b0, center_hue};        // 0-359
     assign sat_decimal = {3'b0, center_saturation}; // 0-255
     assign val_decimal = {3'b0, center_value};      // 0-255
+	 
+	 
+	 logic is_red_comb, is_green_comb, is_black_comb;
+
     
     // ========== USE YOUR EXISTING COLOR_DETECTOR MODULE ==========
     color_detector detector (
         .h(center_hue),
         .s(center_saturation),
         .v(center_value),
-        .is_red(red_detected),
-        .is_green(green_detected),
-        .is_black(black_detected)
+        .is_red(is_red_comb),
+        .is_green(is_green_comb),
+        .is_black(is_black_comb)
     );
+	 
+	 
+	 
+	 // Register outputs when HSV is valid
+	always_ff @(posedge clk) begin
+		 if (hsv_valid) begin
+			  red_detected   <= is_red_comb;
+			  green_detected <= is_green_comb;
+			  black_detected <= is_black_comb;
+		 end
+	end
     
 endmodule
