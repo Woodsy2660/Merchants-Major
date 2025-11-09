@@ -1,0 +1,88 @@
+Quartus Prime Archive log --	C:/Users/bwood/Downloads/FINALPROJECT.qarlog
+
+Archive:	C:/Users/bwood/Downloads/FINALPROJECT.qar
+Date:		Sun Nov 09 13:21:11 2025
+Quartus Prime		20.1.0 Build 711 06/05/2020 SJ Lite Edition
+
+	=========== Files Selected: ===========
+C:/Users/bwood/GUN/Camera.out.sdc
+C:/Users/bwood/GUN/Camera.qpf
+C:/Users/bwood/GUN/Camera.qsf
+C:/Users/bwood/GUN/DE2_115_IR.sv
+C:/Users/bwood/GUN/FSM.sv
+C:/Users/bwood/GUN/IR_RECEIVE_Terasic.v
+C:/Users/bwood/GUN/SEG_HEX.v
+C:/Users/bwood/GUN/Ultrasonic_drive.sv
+C:/Users/bwood/GUN/assignment_defaults.qdf
+C:/Users/bwood/GUN/camera_drive_flags.sv
+C:/Users/bwood/GUN/camera_stream_tb.sv
+C:/Users/bwood/GUN/colour_debug.sv
+C:/Users/bwood/GUN/colour_detect.sv
+C:/Users/bwood/GUN/display.sv
+C:/Users/bwood/GUN/i2c_sender.v
+C:/Users/bwood/GUN/image_RAM.qip
+C:/Users/bwood/GUN/image_RAM.v
+C:/Users/bwood/GUN/image_RAM_bb.v
+C:/Users/bwood/GUN/image_buffer.sv
+C:/Users/bwood/GUN/image_buffer_tb.sv
+C:/Users/bwood/GUN/ov7670_controller.v
+C:/Users/bwood/GUN/ov7670_pixel_capture.sv
+C:/Users/bwood/GUN/ov7670_registers.v
+C:/Users/bwood/GUN/pll1.bsf
+C:/Users/bwood/GUN/pll1.qip
+C:/Users/bwood/GUN/pll1.v
+C:/Users/bwood/GUN/rbg_to_hsv.sv
+C:/Users/bwood/GUN/roi_overlay.sv
+C:/Users/bwood/GUN/servo_pwm.sv
+C:/Users/bwood/GUN/seven_seg.sv
+C:/Users/bwood/GUN/top_level.sv
+C:/Users/bwood/GUN/uart_tx.sv
+C:/Users/bwood/GUN/vga_driver.sv
+C:/Users/bwood/GUN/vga_scaler.sv
+C:/Users/bwood/GUN/video_pll.ppf
+C:/Users/bwood/GUN/video_pll.qip
+C:/Users/bwood/GUN/video_pll.v
+C:/Users/bwood/GUN/video_pll_bb.v
+C:/Users/bwood/Merchants-Major/camera_test1/FFT/FFT_stream.out.sdc
+C:/Users/bwood/Merchants-Major/camera_test1/FFT/async_fifo.qip
+C:/Users/bwood/Merchants-Major/camera_test1/FFT/async_fifo.v
+C:/Users/bwood/Merchants-Major/camera_test1/FFT/decimate.sv
+C:/Users/bwood/Merchants-Major/camera_test1/FFT/fft_find_peak.sv
+C:/Users/bwood/Merchants-Major/camera_test1/FFT/fft_input_buffer.sv
+C:/Users/bwood/Merchants-Major/camera_test1/FFT/fft_ip_r22sdf/Butterfly.v
+C:/Users/bwood/Merchants-Major/camera_test1/FFT/fft_ip_r22sdf/DelayBuffer.v
+C:/Users/bwood/Merchants-Major/camera_test1/FFT/fft_ip_r22sdf/FFT.v
+C:/Users/bwood/Merchants-Major/camera_test1/FFT/fft_ip_r22sdf/Multiply.v
+C:/Users/bwood/Merchants-Major/camera_test1/FFT/fft_ip_r22sdf/SdfUnit.v
+C:/Users/bwood/Merchants-Major/camera_test1/FFT/fft_ip_r22sdf/SdfUnit2.v
+C:/Users/bwood/Merchants-Major/camera_test1/FFT/fft_ip_r22sdf/SdfUnit_TC.v
+C:/Users/bwood/Merchants-Major/camera_test1/FFT/fft_ip_r22sdf/Twiddle.v
+C:/Users/bwood/Merchants-Major/camera_test1/FFT/fft_ip_r22sdf/TwiddleConvert4.v
+C:/Users/bwood/Merchants-Major/camera_test1/FFT/fft_ip_r22sdf/TwiddleConvert8.v
+C:/Users/bwood/Merchants-Major/camera_test1/FFT/fft_mag_sq.sv
+C:/Users/bwood/Merchants-Major/camera_test1/FFT/fft_output_buffer.sv
+C:/Users/bwood/Merchants-Major/camera_test1/FFT/fft_pitch_detect.sv
+C:/Users/bwood/Merchants-Major/camera_test1/FFT/fft_pitch_detect_tb.sv
+C:/Users/bwood/Merchants-Major/camera_test1/FFT/low_pass_conv.sv
+C:/Users/bwood/Merchants-Major/camera_test1/FFT/mic/adc_pll.ppf
+C:/Users/bwood/Merchants-Major/camera_test1/FFT/mic/adc_pll.qip
+C:/Users/bwood/Merchants-Major/camera_test1/FFT/mic/adc_pll.v
+C:/Users/bwood/Merchants-Major/camera_test1/FFT/mic/adc_pll_bb.v
+C:/Users/bwood/Merchants-Major/camera_test1/FFT/mic/i2c_master.sv
+C:/Users/bwood/Merchants-Major/camera_test1/FFT/mic/i2c_pll.ppf
+C:/Users/bwood/Merchants-Major/camera_test1/FFT/mic/i2c_pll.qip
+C:/Users/bwood/Merchants-Major/camera_test1/FFT/mic/i2c_pll.v
+C:/Users/bwood/Merchants-Major/camera_test1/FFT/mic/i2c_pll_bb.v
+C:/Users/bwood/Merchants-Major/camera_test1/FFT/mic/mic_load.sv
+C:/Users/bwood/Merchants-Major/camera_test1/FFT/mic/set_audio_encoder.sv
+C:/Users/bwood/Merchants-Major/camera_test1/FFT/window_function.sv
+C:/Users/bwood/Merchants-Major/camera_test1/sensor_driver/sonar_pll.ppf
+C:/Users/bwood/Merchants-Major/camera_test1/sensor_driver/sonar_pll.qip
+C:/Users/bwood/Merchants-Major/camera_test1/sensor_driver/sonar_pll.v
+C:/Users/bwood/Merchants-Major/camera_test1/sensor_driver/sonar_pll_bb.v
+C:/Users/bwood/Merchants-Major/camera_test1/sensor_driver/sonar_range.sv
+C:/users/bwood/merchants-major/camera_test1/fft/test_waveform.hex
+	======= Total: 77 files to archive =======
+
+	================ Status: ===============
+All files archived successfully.
